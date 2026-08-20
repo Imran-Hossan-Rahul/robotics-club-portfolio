@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>UAP Robotics Club</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Orbitron:wght@500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Swiper CSS -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+
+    <link rel="stylesheet" href="style.css?v=30">
+
+</head>
+
+<body class="dark-theme">
+
+    <canvas id="circuit-canvas"></canvas>
+
+
+
+
+
+    
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="photo/robotics-club-logo.png" alt="Robotics Club Logo" class="nav-logo-img">
+            </div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#committee">Committee</a>
+                <a href="#events">Events</a>
+                <a href="#workshops">Workshops</a>
+            </div>
+            <div class="nav-cta">
+                <a href="#partner" class="btn btn-amber">Partner With Us</a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 1. HERO -->
+    <header class="hero section fade-in" id="hero">
+        <div class="container text-center hero-content" style="position: relative; z-index: 10;">
+            <h1 class="hero-title">Robotics Club</h1>
+            <h2 class="hero-subtitle highlight">University of Asia Pacific</h2>
+            <p class="hero-mission">We are dedicated to fostering innovation in robotics, providing students with hands-on experience, and building competitive autonomous systems.</p>
+            <div class="hero-buttons">
+                <a href="#committee" class="btn btn-outline">Meet the Team</a>
+                <a href="#partner" class="btn btn-amber">Partner With Us</a>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- 3. COMMITTEE -->
+    <section class="committee section fade-in" id="committee" style="padding-top: 50px;">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Leadership</h2>
+            </div>
+            
+            <div class="core-leaders mt-4">
+                <div class="leader-card prominent">
+                    <img src="photo/convener.jpeg" alt="Convener" class="leader-photo">
+                    <h3 class="leader-name">A S Zaforullah Momtaz</h3>
+                    <div class="leader-role">CONVENER</div>
+                </div>
+                <div class="leader-card prominent">
+                    <img src="photo/co-convener.jpeg" alt="Co-Convener" class="leader-photo">
+                    <h3 class="leader-name">Dr. Nazmun Nahid</h3>
+                    <div class="leader-role">CO-CONVENER</div>
+                </div>
+            </div>
+
+        </div> <!-- End standard container -->
+        
+        <div class="expo-highlight-grid mt-5">
+            <div class="event-highlight-card" style="padding: 0;">
+                <img src="photo/robo-expo-3.jpg" alt="Robo Expo 3.0" class="expo-photo">
+            </div>
+            <div class="event-highlight-card" style="padding: 0;">
+                <img src="photo/robo-expo-2.jpeg" alt="Robo Expo 2" class="expo-photo">
+            </div>
+            <div class="event-highlight-card" style="padding: 0;">
+                <img src="photo/robo-expo-1.png" alt="Robo Expo 1" class="expo-photo">
+            </div>
+            <div class="event-highlight-card" style="padding: 0;">
+                <img src="photo/under-4.jpg" alt="Under" class="expo-photo">
+            </div>
+            <div class="event-highlight-card" style="padding: 0;">
+                <img src="photo/under-5.jpg" alt="Under" class="expo-photo">
+            </div>
+            <div class="event-highlight-card" style="padding: 0;">
+                <img src="photo/under-6.jpg" alt="Under" class="expo-photo">
+            </div>
+            <div class="event-highlight-card" style="padding: 0;">
+                <img src="photo/under-7.jpg" alt="Under" class="expo-photo">
+            </div>
+            <div class="event-highlight-card" style="padding: 0;">
+                <img src="photo/under-8.jpg" alt="Under" class="expo-photo">
+            </div>
+        </div>
+        
+        <div class="container mt-5 pt-4">
+            <div class="details-section p-4 p-md-5" style="background: rgba(17, 24, 39, 0.7); border: 1px solid rgba(34, 211, 238, 0.15); border-radius: 12px; backdrop-filter: blur(10px);">
+                <h3 class="display-6 fw-bold mb-4 text-center" style="color: var(--text-primary);">A Legacy of Innovation</h3>
+                <p class="lead text-secondary mb-4" style="line-height: 1.8;">
+                    The Robotics Club at the University of Asia Pacific has been at the forefront of technological excellence. Over the years, we have grown from a small group of enthusiasts to a powerhouse of innovation. Our journey is defined by the incredible passion of our members, the countless hours spent in the lab, and the relentless pursuit of perfection in every circuit we solder and every line of code we write.
+                </p>
+                <p class="text-secondary" style="line-height: 1.8;">
+                    Through our flagship events, technical workshops, and national competitions, we have consistently pushed the boundaries of what student-led robotics can achieve. This platform is not just about building robots; it's about building the leaders, thinkers, and engineers of tomorrow.
+                </p>
+            </div>
+        </div>
+
+        <!-- ===== IRO BANGLADESH OPEN 2026 HIGHLIGHT ===== -->
+        <div class="container pt-5 pb-5 position-relative" style="margin-top: 150px; z-index: 1;">
+            <!-- Announcement Heading -->
+            <div class="text-center mb-5 position-relative" style="z-index: 10;">
+                <!-- Inline wrapper to match text size and coordinate positions -->
+                <div style="position: relative; display: inline-block;">
+                    <style>
+                        @keyframes premiumBulbPulse {
+                            0%, 100% {
+                                box-shadow: 0 0 10px #fff, 0 0 30px #F59E0B, 0 0 60px #F59E0B, 0 0 100px #F59E0B;
+                                transform: translateX(-50%) scale(1);
+                            }
+                            50% {
+                                box-shadow: 0 0 20px #fff, 0 0 40px #F59E0B, 0 0 80px #F59E0B, 0 0 150px #F59E0B;
+                                transform: translateX(-50%) scale(1.2);
+                            }
+                        }
+                        @keyframes premiumFlarePulse {
+                            0%, 100% {
+                                opacity: 0.6;
+                                transform: translateX(-50%) scaleX(1);
+                            }
+                            50% {
+                                opacity: 1;
+                                transform: translateX(-50%) scaleX(1.4);
+                            }
+                        }
+                        @keyframes premiumGlowPulse {
+                            0%, 100% {
+                                opacity: 0.6;
+                                transform: translateX(-50%) scale(0.95);
+                            }
+                            50% {
+                                opacity: 1;
+                                transform: translateX(-50%) scale(1.05);
+                            }
+                        }
+                        @keyframes smoothRipple {
+                            0% {
+                                transform: translate(-50%, -50%) scale(0.5);
+                                opacity: 0;
+                            }
+                            10% { opacity: 0.8; }
+                            100% {
+                                transform: translate(-50%, -50%) scale(1.5);
+                                opacity: 0;
+                            }
+                        }
+                        .wave-ripple {
+                            position: absolute;
+                            top: -300px;
+                            left: 50%;
+                            width: 1200px;
+                            height: 1200px;
+                            transform-origin: center;
+                            transform: translate(-50%, -50%) scale(0.5);
+                            border-radius: 50%;
+                            border: 4px solid rgba(245,158,11,0.85);
+                            box-shadow: 0 0 8px rgba(245,158,11,0.7), inset 0 0 8px rgba(245,158,11,0.7);
+                            animation: smoothRipple 10s linear infinite;
+                            will-change: transform, opacity;
+                        }
+                    </style>
+                    <!-- MASTER LIGHT CLIPPING CONTAINER -->
+                    <!-- This ensures no light can ever bleed upwards above the bottom of the text box -->
+                    <div style="
+                        position: absolute;
+                        top: 100%;
+                        left: -800px;
+                        right: -800px;
+                        height: 800px;
+                        overflow: hidden;
+                        z-index: 1;
+                        pointer-events: none;
+                        mix-blend-mode: screen;
+                        -webkit-mask-image: linear-gradient(to bottom, black 0%, black 100px, transparent 290px);
+                        mask-image: linear-gradient(to bottom, black 0%, black 100px, transparent 290px);
+                    ">
+                        
+                        <!-- Smooth 3D Ripples (Curved Scanning Waves) -->
+                        <div style="
+                            position: absolute;
+                            top: 0; left: 50%; bottom: 0;
+                            transform: translateX(-50%);
+                            width: 1600px;
+                            -webkit-mask-image: conic-gradient(from 115deg at 50% 0%, transparent 0deg, black 65deg, transparent 130deg);
+                            mask-image: conic-gradient(from 115deg at 50% 0%, transparent 0deg, black 65deg, transparent 130deg);
+                            pointer-events: none;
+                        ">
+                            <div class="wave-ripple" style="animation-delay: 0s;"></div>
+                            <div class="wave-ripple" style="animation-delay: -3.33s;"></div>
+                            <div class="wave-ripple" style="animation-delay: -6.66s;"></div>
+                        </div>
+
+                        <!-- Cinematic Lens Flare (Horizontal) -->
+                        <div style="
+                            position: absolute;
+                            top: 0px;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            width: 250px;
+                            height: 2px;
+                            background: linear-gradient(90deg, transparent, rgba(245,158,11,1) 30%, #fff 50%, rgba(245,158,11,1) 70%, transparent);
+                            box-shadow: 0 0 20px #F59E0B, 0 0 40px #F59E0B;
+                            border-radius: 50%;
+                        "></div>
+
+                        <!-- Core high-temp glow -->
+                        <div style="
+                            position: absolute;
+                            top: 0;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            width: 200px;
+                            height: 150px;
+                            background: radial-gradient(ellipse at top center, rgba(255,255,255,0.4) 0%, transparent 60%);
+                            filter: blur(15px);
+                        "></div>
+
+                        <!-- Light source point (bulb) sitting on the edge -->
+                        <!-- Positioned slightly above top:0 so only its bottom half shows -->
+                        <div style="
+                            position: absolute;
+                            top: -8px;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            width: 16px;
+                            height: 16px;
+                            background: #fff;
+                            border-radius: 50%;
+                            box-shadow: 0 0 10px #fff, 0 0 30px #F59E0B, 0 0 60px #F59E0B, 0 0 100px #F59E0B;
+                        "></div>
+
+                        <!-- Ambient glow spreading downwards (Ultra-soft shapeless glow) -->
+                        <div style="
+                            position: absolute;
+                            top: 0;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            width: 1600px;
+                            height: 650px;
+                            filter: blur(80px);
+                            pointer-events: none;
+                        ">
+                            <div style="
+                                width: 100%;
+                                height: 100%;
+                                background: radial-gradient(ellipse at top center, rgba(245,158,11,0.85) 0%, transparent 70%);
+                                -webkit-mask-image: conic-gradient(from 110deg at 50% 0%, transparent 0deg, black 70deg, transparent 140deg);
+                                mask-image: conic-gradient(from 110deg at 50% 0%, transparent 0deg, black 70deg, transparent 140deg);
+                            "></div>
+                        </div>
+                    </div>
+
+                    <!-- The actual text box (z-index 2 puts it in front of the light) -->
+                    <h2 class="display-4 fw-bold" style="
+                        position: relative;
+                        z-index: 2;
+                        margin: 0;
+                        font-family: 'Orbitron', sans-serif;
+                        color: #E8EDF5; 
+                        letter-spacing: 2px; 
+                        text-shadow: 0 0 30px rgba(255,255,255,0.3);
+                        background: rgba(10, 14, 20, 0.85);
+                        padding: 15px 50px;
+                        border-radius: 50px;
+                        border: 1px solid rgba(34, 211, 238, 0.15);
+                        box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 0 20px rgba(34, 211, 238, 0.05);
+                        backdrop-filter: blur(20px);
+                    ">
+                        Announcement
+                    </h2>
+                </div>
+            </div>
+
+
+
+
+            <div style="
+                margin-top: 180px;
+                background: linear-gradient(135deg, rgba(15,20,35,0.98) 0%, rgba(8,12,22,1) 100%);
+                border: 1px solid rgba(34,211,238,0.3);
+                border-radius: 20px;
+                overflow: hidden;
+                display: flex;
+                flex-direction: row;
+                align-items: stretch;
+                flex-wrap: wrap;
+                position: relative;
+                z-index: 5;
+            ">
+                <!-- Top accent line -->
+                <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, #F59E0B 10%, #F59E0B 90%, transparent); z-index: 10;"></div>
+
+                <!-- Left: poster image panel -->
+                <div style="
+                    flex: 0 0 420px;
+                    max-width: 420px;
+                    background: #ffffff;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: relative;
+                    overflow: hidden;
+                ">
+                    <img src="photo/745a421a-f181-415a-ab98-c771c1ecd470.jpg"
+                         alt="IRO Bangladesh Open 2026"
+                         style="width: 100%; height: auto; display: block; object-fit: contain;">
+                    <!-- Right edge fade -->
+                    <div style="position: absolute; top: 0; right: 0; bottom: 0; width: 60px; background: linear-gradient(to right, transparent, rgba(8,12,22,0.7));"></div>
+                </div>
+
+                <!-- Right: content -->
+                <div style="flex: 1 1 300px; padding: 36px 40px; display: flex; flex-direction: column; gap: 16px; justify-content: center; position: relative;">
+                    <!-- Title -->
+                    <h3 style="
+                        font-family: 'Space Grotesk', sans-serif;
+                        font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+                        font-weight: 700;
+                        color: #E8EDF5;
+                        margin: 0;
+                        line-height: 1.2;
+                    ">IRO Bangladesh Open 2026 is coming to UAP!</h3>
+
+                    <!-- Description paragraphs -->
+                    <p style="font-family: 'Inter', sans-serif; font-size: 0.95rem; color: #94A3B8; margin: 0; line-height: 1.75;">
+                        The <strong style="color: #E8EDF5;">University of Asia Pacific (UAP) Robotics Club</strong> is proud to serve as the <strong style="color: #22D3EE;">Co-Host</strong> of IRO Bangladesh Open 2026, organized by <strong style="color: #E8EDF5;">Bangladesh Robot Olympiad (BDRO)</strong>.
+                    </p>
+                    <p style="font-family: 'Inter', sans-serif; font-size: 0.95rem; color: #94A3B8; margin: 0; line-height: 1.75;">
+                        Join us for two exciting days of innovation and creativity!
+                    </p>
+
+                    <!-- Event details chips -->
+                    <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px;">
+                        <div style="display: flex; align-items: center; gap: 8px; background: rgba(34,211,238,0.07); border: 1px solid rgba(34,211,238,0.2); border-radius: 10px; padding: 8px 16px;">
+                            <div>
+                                <div style="font-family: 'Orbitron', sans-serif; font-size: 0.65rem; color: #94A3B8; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 2px;">Venue</div>
+                                <div style="font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; color: #E8EDF5; font-weight: 600;">University of Asia Pacific (UAP), Dhaka</div>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px; background: rgba(245,158,11,0.07); border: 1px solid rgba(245,158,11,0.2); border-radius: 10px; padding: 8px 16px;">
+                            <div>
+                                <div style="font-family: 'Orbitron', sans-serif; font-size: 0.65rem; color: #94A3B8; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 2px;">Date</div>
+                                <div style="font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; color: #F59E0B; font-weight: 600;">11–12 September 2026</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CTAs -->
+                    <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px;">
+                        <a href="https://www.bdro.org" target="_blank" style="
+                            display: inline-flex; align-items: center; gap: 8px;
+                            background: linear-gradient(135deg, #F59E0B, #D97706);
+                            color: #0A0E14;
+                            font-family: 'Space Grotesk', sans-serif;
+                            font-weight: 700; font-size: 0.9rem;
+                            padding: 10px 24px; border-radius: 8px;
+                            text-decoration: none;
+                            box-shadow: 0 4px 15px rgba(245,158,11,0.3);
+                            transition: all 0.3s ease;
+                        " onmouseover="this.style.boxShadow='0 6px 25px rgba(245,158,11,0.5)';this.style.transform='translateY(-2px)'"
+                           onmouseout="this.style.boxShadow='0 4px 15px rgba(245,158,11,0.3)';this.style.transform='translateY(0)'">
+                            Register &rarr; bdro.org
+                        </a>
+                        <a href="https://www.facebook.com/photo.php?fbid=1475872681228466&set=a.554159330066477" target="_blank" style="
+                            display: inline-flex; align-items: center; gap: 8px;
+                            background: transparent;
+                            color: #22D3EE;
+                            font-family: 'Space Grotesk', sans-serif;
+                            font-weight: 600; font-size: 0.9rem;
+                            padding: 10px 24px; border-radius: 8px;
+                            text-decoration: none;
+                            border: 1px solid rgba(34,211,238,0.35);
+                            transition: all 0.3s ease;
+                        " onmouseover="this.style.background='rgba(34,211,238,0.08)';this.style.transform='translateY(-2px)'"
+                           onmouseout="this.style.background='transparent';this.style.transform='translateY(0)'">
+                             View Facebook Post
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 4. FLAGSHIP EVENTS -->
+    <section class="events section mt-5 pt-5" id="events">
+
+        <div class="container text-center mb-5 pb-4">
+            <div class="events-banner" style="position: relative; padding: 4rem 2rem; overflow: hidden; border-radius: 30px; pointer-events: none;">
+                <!-- Decorative glowing elements -->
+                <div style="position: absolute; top: -50%; left: -10%; width: 50%; height: 200%; background: radial-gradient(circle, rgba(34,211,238,0.15) 0%, transparent 70%); transform: rotate(30deg); pointer-events: none;"></div>
+                <div style="position: absolute; bottom: -50%; right: -10%; width: 50%; height: 200%; background: radial-gradient(circle, rgba(245,158,11,0.05) 0%, transparent 70%); transform: rotate(-30deg); pointer-events: none;"></div>
+                
+                <h2 class="display-3 fw-bold mb-3" style="color: var(--text-primary); text-transform: uppercase; letter-spacing: 4px; text-shadow: 0 0 20px rgba(34, 211, 238, 0.4);">
+                    Flagship <span style="color: var(--accent-cyan);">Events</span>
+                </h2>
+                <div style="width: 100px; height: 4px; background: var(--accent-cyan); margin: 0 auto; border-radius: 2px; box-shadow: 0 0 15px var(--accent-cyan);"></div>
+            </div>
+        </div>
+
+        <!-- ================= EXPO 03 ================= -->
+        <div class="event-section mb-5">
+            <div class="event-header text-center mb-4">
+                <h3 class="event-title display-5 fw-bold" style="color: var(--text-primary);">Robo Expo 3.0</h3>
+                <div class="event-date text-secondary">19/8/2026</div>
+            </div>
+            <div class="event-pin-container">
+                <div class="event-details-sidebar">
+                    <p class="event-desc mb-4">Innovation took center stage at the University of Asia Pacific Robotics Club as we successfully hosted <strong>Robo Expo 3.0</strong>, our Intra-University Robotics Competition for Fall 2025.</p>
+                    <p class="event-desc mb-4">From creative engineering solutions to competitive robotic innovations, the event showcased the passion, dedication, and technical excellence of UAP students.</p>
+                    <p class="event-desc mb-4">A heartfelt thank you to all participants, volunteers, judges, and faculty members for making this event a remarkable success.</p>
+                    <div class="segments-section mb-4">
+                        <h4>Key Segments</h4>
+                        <div class="segment-chips">
+                            <span class="segment-chip">Combat Robotics</span>
+                            <span class="segment-chip">Autonomous Navigation</span>
+                            <span class="segment-chip">Tech Exhibition</span>
+                            <span class="segment-chip">Drone Racing</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-gallery-window swiper">
+                    <div class="swiper-wrapper">
+                        <div class="event-slide swiper-slide"><img src="photo/flagship-expo-3.0-image-1.jpg" alt="Robo Expo 3" class="card-bg-img"></div>
+                        <div class="event-slide swiper-slide"><img src="photo/flagship-expo-3.0-image-2.jpg" alt="Robo Expo 3" class="card-bg-img"></div>
+                        <div class="event-slide swiper-slide"><img src="photo/flagship-expo-3.0-image-3.jpg" alt="Robo Expo 3" class="card-bg-img"></div>
+                        <div class="event-slide swiper-slide"><img src="photo/flagship-expo-3.0-image-4.jpg" alt="Robo Expo 3" class="card-bg-img"></div>
+                        <div class="event-slide swiper-slide"><img src="photo/flagship-expo-3.0-image-5.jpg" alt="Robo Expo 3" class="card-bg-img"></div>
+                        <div class="event-slide swiper-slide"><img src="photo/flagship-expo-3.0-image-6.jpg" alt="Robo Expo 3" class="card-bg-img"></div>
+                        <div class="event-slide swiper-slide"><img src="photo/flagship-expo-3.0-image-7.jpg" alt="Robo Expo 3" class="card-bg-img"></div>
+                    </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= ROBO EXPO 3.0 HALL OF FAME ================= -->
+        <style>
+            .hof-section { padding: 60px 24px 40px; max-width: 1200px; margin: 0 auto; }
+            .hof-title { text-align: center; color: #E8EDF5; font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; margin-bottom: 8px; }
+            .hof-subtitle { text-align: center; color: #94A3B8; font-family: 'Orbitron', sans-serif; font-size: 0.85rem; margin-bottom: 40px; letter-spacing: 2px; }
+            .hof-row { display: flex; gap: 24px; margin-bottom: 24px; }
+            .hof-row-top { justify-content: center; }
+            .hof-row-bottom { justify-content: center; }
+            .hof-card { background: rgba(17, 24, 39, 0.85); border: 1px solid rgba(34, 211, 238, 0.18); border-radius: 16px; padding: 28px 24px; flex: 0 0 calc(50% - 12px); max-width: calc(50% - 12px); transition: all 0.3s ease; box-shadow: 0 4px 24px rgba(0,0,0,0.35); backdrop-filter: blur(8px); }
+            .hof-row-bottom .hof-card { flex: 0 0 calc(33.333% - 16px); max-width: calc(33.333% - 16px); }
+            .hof-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(34, 211, 238, 0.18); border-color: rgba(34, 211, 238, 0.45); }
+            .hof-segment-name { color: #E8EDF5; font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1rem; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid rgba(34, 211, 238, 0.12); display: flex; align-items: center; gap: 8px; }
+            .hof-segment-name::before { content: ''; display: inline-block; width: 4px; height: 18px; background: var(--accent-cyan); border-radius: 2px; flex-shrink: 0; }
+            .hof-entry { margin-bottom: 18px; }
+            .hof-entry:last-child { margin-bottom: 0; }
+            .hof-rank { font-family: 'Orbitron', sans-serif; font-size: 0.75rem; letter-spacing: 1.5px; font-weight: 600; display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
+            .hof-rank.champion { color: #F59E0B; }
+            .hof-rank.runner { color: #22D3EE; }
+            .hof-team-label { font-size: 0.7rem; color: #94A3B8; font-family: 'Inter', sans-serif; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 2px; }
+            .hof-team-name { color: #E8EDF5; font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; font-weight: 600; margin-bottom: 4px; }
+            .hof-member-label { font-size: 0.7rem; color: #94A3B8; font-family: 'Inter', sans-serif; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 2px; margin-top: 4px; }
+            .hof-members { color: #94A3B8; font-family: 'Inter', sans-serif; font-size: 0.85rem; line-height: 1.5; }
+            .hof-divider { border: none; border-top: 1px solid rgba(34, 211, 238, 0.08); margin: 14px 0; }
+            @media (max-width: 900px) {
+                .hof-row { flex-direction: column; }
+                .hof-card, .hof-row-bottom .hof-card { flex: 1 1 100%; max-width: 100%; }
+            }
+        </style>
+        <div class="hof-section">
+            <h3 class="hof-title">
+                <span style="display: block; font-size: 3rem; margin-bottom: 12px; filter: drop-shadow(0 0 10px rgba(245,158,11,0.5));">🏆</span>
+                Hall of Fame
+            </h3>
+            <p class="hof-subtitle">ROBO EXPO 3.0 — WINNERS &amp; RUNNERS-UP</p>
+
+            <!-- ROW 1: 2 cards -->
+            <div class="hof-row hof-row-top">
+
+                <!-- LFR -->
+                <div class="hof-card">
+                    <div class="hof-segment-name">LFR — Line Follower Robot</div>
+                    <div class="hof-entry">
+                        <div class="hof-rank champion">🥇 CHAMPION</div>
+                        <div class="hof-team-label">Team Name</div>
+                        <div class="hof-team-name">Shadow Hunter</div>
+                        <div class="hof-member-label">Members</div>
+                        <div class="hof-members">Md. Noman Chowdhury &nbsp;·&nbsp; Naim Rahman Santo</div>
+                    </div>
+                    <hr class="hof-divider">
+                    <div class="hof-entry">
+                        <div class="hof-rank runner">🥈 1ST RUNNER-UP</div>
+                        <div class="hof-team-label">Team Name</div>
+                        <div class="hof-team-name">Circuit Breaker</div>
+                        <div class="hof-member-label">Members</div>
+                        <div class="hof-members">Md. Yeamin Bhuiyan &nbsp;·&nbsp; Sadia Afrin Mohona &nbsp;·&nbsp; Sumaiya Akter</div>
+                    </div>
+                </div>
+
+                <!-- Project Showcase -->
+                <div class="hof-card">
+                    <div class="hof-segment-name">Project Showcase</div>
+                    <div class="hof-entry">
+                        <div class="hof-rank champion">🥇 CHAMPION</div>
+                        <div class="hof-team-label">Team Name</div>
+                        <div class="hof-team-name">Quanta Dot</div>
+                        <div class="hof-member-label">Members</div>
+                        <div class="hof-members">Arnica Sarker &nbsp;·&nbsp; Julias Uddin Khan &nbsp;·&nbsp; Shams Shahriar Haque</div>
+                    </div>
+                    <hr class="hof-divider">
+                    <div class="hof-entry">
+                        <div class="hof-rank runner">🥈 1ST RUNNER-UP</div>
+                        <div class="hof-team-label">Team Name</div>
+                        <div class="hof-team-name">S.H.I.E.L.D</div>
+                        <div class="hof-member-label">Members</div>
+                        <div class="hof-members">Md. Sakib Hossaine &nbsp;·&nbsp; Faiza Haque Shoily &nbsp;·&nbsp; Md. Tabiur Rahman &nbsp;·&nbsp; Asif Rezwan</div>
+                    </div>
+                </div>
+
+            </div><!-- end row 1 -->
+
+            <!-- ROW 2: 3 cards -->
+            <div class="hof-row hof-row-bottom">
+
+                <!-- CM14 Robot Battle -->
+                <div class="hof-card">
+                    <div class="hof-segment-name">CM14 Robot Battle</div>
+                    <div class="hof-entry">
+                        <div class="hof-rank champion">🥇 CHAMPION</div>
+                        <div class="hof-team-label">Team Name</div>
+                        <div class="hof-team-name">Microbot</div>
+                        <div class="hof-member-label">Members</div>
+                        <div class="hof-members">Onindo Dey Niloy &nbsp;·&nbsp; Farhana Chowdhury &nbsp;·&nbsp; Md. Shahriaul Islam &nbsp;·&nbsp; Sadia Akter Keya</div>
+                    </div>
+                    <hr class="hof-divider">
+                    <div class="hof-entry">
+                        <div class="hof-rank runner">🥈 1ST RUNNER-UP</div>
+                        <div class="hof-team-label">Team Name</div>
+                        <div class="hof-team-name">S.H.I.E.L.D</div>
+                        <div class="hof-member-label">Members</div>
+                        <div class="hof-members">Md. Sakib Hossaine &nbsp;·&nbsp; Faiza Haque Shoily &nbsp;·&nbsp; Md. Tabiur Rahman &nbsp;·&nbsp; Asif Rezwan</div>
+                    </div>
+                </div>
+
+                <!-- Robo Quiz -->
+                <div class="hof-card">
+                    <div class="hof-segment-name">Robo Quiz</div>
+                    <div class="hof-entry">
+                        <div class="hof-rank champion">🥇 CHAMPION</div>
+                        <div class="hof-team-label">Winner</div>
+                        <div class="hof-team-name">Sanjida Rahman Toma</div>
+                    </div>
+                    <hr class="hof-divider">
+                    <div class="hof-entry">
+                        <div class="hof-rank runner">🥈 1ST RUNNER-UP</div>
+                        <div class="hof-team-label">Winner</div>
+                        <div class="hof-team-name">Jannatul Fardous Nijhum</div>
+                    </div>
+                </div>
+
+                <!-- RM22 Robot Rumble -->
+                <div class="hof-card">
+                    <div class="hof-segment-name">RM22 Robot Rumble</div>
+                    <div class="hof-entry">
+                        <div class="hof-rank champion">🥇 CHAMPION</div>
+                        <div class="hof-team-label">Team Name</div>
+                        <div class="hof-team-name">Bot er Battery Low</div>
+                        <div class="hof-member-label">Members</div>
+                        <div class="hof-members">Labiba Umme Tasim &nbsp;·&nbsp; Swapnil Sotej Ekanto</div>
+                    </div>
+                    <hr class="hof-divider">
+                    <div class="hof-entry">
+                        <div class="hof-rank runner">🥈 1ST RUNNER-UP</div>
+                        <div class="hof-team-label">Team Name</div>
+                        <div class="hof-team-name">The Cage</div>
+                        <div class="hof-member-label">Members</div>
+                        <div class="hof-members">Ridwanul Bari &nbsp;·&nbsp; Junait Hossain Dipto</div>
+                    </div>
+                </div>
+
+            </div><!-- end row 2 -->
+        </div><!-- end hof-section -->
+
+        <!-- ================= EXPO 02 ================= -->
+        <div class="event-section mt-5 mb-5">
+            <div class="event-header text-center mb-4 mt-5 pt-5">
+                <h3 class="event-title display-5 fw-bold" style="color: var(--text-primary);">Robo Expo 2.0</h3>
+                <div class="event-date text-secondary">24th November Sunday 2025</div>
+            </div>
+            <div class="event-pin-container">
+                <div class="event-details-sidebar">
+                    <p class="event-desc mb-4">On <strong>November 24, 2024</strong>, the Robotics Club, CSE-UAP, hosted an unforgettable event showcasing groundbreaking robotics projects and innovations!</p>
+                    <p class="event-desc mb-4">We were honored to have <strong>Prof. Dr. Sultan Mahmud</strong>, Pro Vice-Chancellor of UAP, along with the esteemed Heads &amp; Faculty members of the CSE department, join us in celebrating the spirit of creativity and learning!</p>
+                    <p class="event-desc mb-4">Huge thanks to all the brilliant participants and attendees who made <strong>Robo Expo 2.0</strong> a tremendous success! We couldn't be prouder of the dedication and passion shown by everyone.</p>
+                    <div class="segments-section mb-4">
+                        <h4>Key Segments</h4>
+                        <div class="segment-chips">
+                            <span class="segment-chip">Project Showcase</span>
+                            <span class="segment-chip">LFR</span>
+                            <span class="segment-chip">Robo Quiz</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-gallery-window swiper">
+                    <div class="swiper-wrapper">
+                        <div class="event-slide swiper-slide"><img src="photo/flagship-expo-2.0-image-1.jpeg" alt="Robo Expo 2" class="card-bg-img"></div>
+                        <div class="event-slide swiper-slide"><img src="photo/flagship-expo-2.0-image-2.jpeg" alt="Robo Expo 2" class="card-bg-img"></div>
+                        <div class="event-slide swiper-slide"><img src="photo/flagship-expo-2.0-image-3.jpeg" alt="Robo Expo 2" class="card-bg-img"></div>
+                        <div class="event-slide swiper-slide"><img src="photo/flagship-expo-2.0-image-4.jpeg" alt="Robo Expo 2" class="card-bg-img"></div>
+                        <div class="event-slide swiper-slide"><img src="photo/flagship-expo-2.0-image-5.jpg" alt="Robo Expo 2" class="card-bg-img"></div>
+                        <div class="event-slide swiper-slide"><img src="photo/flagship-expo-2.0-image-6.jpeg" alt="Robo Expo 2" class="card-bg-img"></div>
+                        <div class="event-slide swiper-slide"><img src="photo/flagship-expo-2.0-image-7.jpeg" alt="Robo Expo 2" class="card-bg-img"></div>
+                        <div class="event-slide swiper-slide"><img src="photo/flagship-expo-2.0-image-8.jpeg" alt="Robo Expo 2" class="card-bg-img"></div>
+                        <div class="event-slide swiper-slide"><img src="photo/flagship-expo-2.0-image-9.jpeg" alt="Robo Expo 2" class="card-bg-img"></div>
+                        <div class="event-slide swiper-slide"><img src="photo/flagship-expo-2.0-image-10.jpeg" alt="Robo Expo 2" class="card-bg-img"></div>
+                        <div class="event-slide swiper-slide"><img src="photo/flagship-expo-2.0-image-10.jpg" alt="Robo Expo 2" class="card-bg-img"></div>
+                        <div class="event-slide swiper-slide"><img src="photo/flagship-expo-2.0-image-11.jpg" alt="Robo Expo 2" class="card-bg-img"></div>
+                        <div class="event-slide swiper-slide"><img src="photo/flagship-expo-2.0-image-112.jpg" alt="Robo Expo 2" class="card-bg-img"></div>
+                        <div class="event-slide swiper-slide"><img src="photo/flagship-expo-2.0-image-13.jpg" alt="Robo Expo 2" class="card-bg-img"></div>
+                    </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= EXPO 01 ================= -->
+        <div class="event-section mt-5 mb-5">
+            <div class="event-header text-center mb-4 mt-5 pt-5">
+                <h3 class="event-title display-5 fw-bold" style="color: var(--text-primary);">Robo Expo 1.0</h3>
+                <div class="event-date text-secondary">[DATE / YEAR]</div>
+            </div>
+            <div class="event-pin-container mb-5">
+                <div class="event-details-sidebar">
+                    <p class="event-desc mb-4">The story of how the very first Expo was organized and its initial success. This laid the foundation for our robotics community and sparked a culture of innovation.</p>
+                    <div class="segments-section mb-4">
+                        <h4>Key Segments</h4>
+                        <div class="segment-chips">
+                            <span class="segment-chip">Project Showcase</span>
+                            <span class="segment-chip">LFR</span>
+                            <span class="segment-chip">CM14 Rumble</span>
+                            <span class="segment-chip">RM22 Battle</span>
+                            <span class="segment-chip">Robo Quiz</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-gallery-window swiper">
+                    <div class="swiper-wrapper">
+                        <div class="event-slide swiper-slide"><img src="photo/flagship-expo-1.0-image-1.jpg" alt="Robo Expo 1" class="card-bg-img"></div>
+                        <div class="event-slide swiper-slide"><img src="photo/flagship-expo-1.0-image-2.jpg" alt="Robo Expo 1" class="card-bg-img"></div>
+                        <div class="event-slide swiper-slide"><img src="photo/flagship-expo-1.0-image-3.jpg" alt="Robo Expo 1" class="card-bg-img"></div>
+                        <div class="event-slide swiper-slide"><img src="photo/flagship-expo-1.0-image-4.jpg" alt="Robo Expo 1" class="card-bg-img"></div>
+                        <div class="event-slide swiper-slide"><img src="photo/flagship-expo-1.0-image-5.jpg" alt="Robo Expo 1" class="card-bg-img"></div>
+                        <div class="event-slide swiper-slide"><img src="photo/flagship-expo-1.0-image-6.jpg" alt="Robo Expo 1" class="card-bg-img"></div>
+                    </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 5. WORKSHOPS -->
+    <section class="workshops section mt-5 pt-5 fade-in" id="workshops">
+        <div class="full-width-container">
+            <div class="section-header text-center mb-5">
+                <h2>Workshops</h2>
+            </div>
+        </div>
+            
+        <div class="workshops-grid mt-4">
+            <div class="workshop-img-card"><img src="photo/workshop-image-1.jpg" alt="Workshop"></div>
+            <div class="workshop-img-card"><img src="photo/workshop-image-2.jpg" alt="Workshop"></div>
+            <div class="workshop-img-card"><img src="photo/workshop-image-3.jpg" alt="Workshop"></div>
+            <div class="workshop-img-card"><img src="photo/workshop-image- 3.jpg" alt="Workshop"></div>
+            <div class="workshop-img-card"><img src="photo/workshop-image-4.jpg" alt="Workshop"></div>
+            <div class="workshop-img-card"><img src="photo/workshop-image-5.jpg" alt="Workshop"></div>
+            <div class="workshop-img-card"><img src="photo/workshop-image-6.jpg" alt="Workshop"></div>
+            <div class="workshop-img-card"><img src="photo/workshop-image-7.jpg" alt="Workshop"></div>
+            <div class="workshop-img-card"><img src="photo/workshop-image-8.jpg" alt="Workshop"></div>
+            <div class="workshop-img-card"><img src="photo/workshop-image-11.jpg" alt="Workshop"></div>
+            <div class="workshop-img-card"><img src="photo/workshop-image-12.jpg" alt="Workshop"></div>
+            <div class="workshop-img-card"><img src="photo/workshop-image-14.jpg" alt="Workshop"></div>
+        </div>
+            
+        <div class="full-width-container">
+            
+            <div class="container mt-5 pt-4" style="max-width: 1200px; margin: 0 auto;">
+                <div class="details-section p-4 p-md-5" style="background: rgba(17, 24, 39, 0.7); border: 1px solid rgba(34, 211, 238, 0.15); border-radius: 12px; backdrop-filter: blur(10px);">
+                    <h3 class="display-6 fw-bold mb-4" style="color: var(--text-primary);">About the last workshop..</h3>
+                    <p class="lead text-secondary mb-4" style="line-height: 1.8;">
+                        The Robotics Club of CSE, UAP, has organized a workshop on robotics on 20th April 2026. It was held in the Robotics Lab, CSE, UAP, and lasted for 150 minutes. In the session, a total of 5 "CM14 - An Advanced IoT-Powered Smart Robot” were assembled by the students of various semesters of CSE, UAP.
+                    </p>
+                    <p class="lead text-secondary mb-4" style="line-height: 1.8;">
+                        The CM14 (Capsule Mover of 1 Layer with 4 Engines) is a NodeMCU ESP8266 V2 board-based smart robot that can be commanded via internet media. This DIY project is equipped with 4 wheels and 1 layer of capsule-shaped drive platform(s). It is aimed at designing a robot that can be controlled through a smartphone over Wi-Fi technology.
+                    </p>
+                    <p class="lead text-secondary mb-0" style="line-height: 1.8;">
+                        It is to be noted that the workshop was a collaborative initiative by the Robotics Club, CSE, UAP, and eChithi.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- 6. FUTURE EVENT TEASER -->
+
+    <section class="teaser section fade-in" id="teaser">
+
+        <div class="container text-center">
+
+
+            <h2 class="teaser-title">Something is being built.</h2>
+
+
+            <div class="countdown-wrapper mt-4 mb-5" id="countdown">
+                <div class="countdown-box">
+                    <span class="countdown-num" id="cd-days">00</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-box">
+                    <span class="countdown-num" id="cd-hours">00</span>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-box">
+                    <span class="countdown-num" id="cd-minutes">00</span>
+                    <span class="countdown-label">Minutes</span>
+                </div>
+                <div class="countdown-box">
+                    <span class="countdown-num" id="cd-seconds">00</span>
+                    <span class="countdown-label">Seconds</span>
+                </div>
+            </div>
+            <a href="#partner" class="btn btn-amber mt-3">Be part of it before anyone else — Partner With Us</a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- 7. PARTNER WITH US -->
+
+    <section class="partner section fade-in" id="partner">
+
+        <div class="container">
+
+            <div class="section-header text-center mb-4">
+
+                <h2>Power the Next Robo Expo</h2>
+
+                <p>Join us in shaping the next generation of engineering leaders.</p>
+
+            </div>
+
+
+
+            <div class="why-sponsor mt-5">
+
+                <h3 class="text-center mb-3">Why Sponsor Us?</h3>
+
+                <div class="benefits-grid">
+
+                    <div class="benefit-card">
+
+                        <h4>Brand Visibility</h4>
+
+                        <p>Reach over [X] engineering students and faculty.</p>
+
+                    </div>
+
+                    <div class="benefit-card">
+
+                        <h4>Media Reach</h4>
+
+                        <p>Extensive social media coverage and local press reach.</p>
+
+                    </div>
+
+                    <div class="benefit-card">
+
+                        <h4>Association with Innovation</h4>
+
+                        <p>Align your brand with cutting-edge student projects.</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+            <div class="past-sponsors mt-5 text-center">
+
+                <h3 class="mb-4">Our Past Partners</h3>
+
+                <div class="sponsor-logos-grid">
+
+                    <div class="sponsor-logo-placeholder">[SPONSOR 1]</div>
+
+                    <div class="sponsor-logo-placeholder">[SPONSOR 2]</div>
+
+                    <div class="sponsor-logo-placeholder">[SPONSOR 3]</div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="partner-cta text-center mt-5">
+
+                <a href="mailto:[EMAIL@EXAMPLE.COM]" class="btn btn-amber btn-large">Become a Sponsor</a>
+
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- 8. FOOTER -->
+
+    <footer class="footer">
+
+        <div class="container text-center">
+
+            <div class="footer-logos mb-3">
+
+                <span class="club-name">Robotics Club</span> | <span class="uni-name">University of Asia Pacific</span>
+
+            </div>
+
+            <div class="social-links mb-3">
+                <a href="https://www.facebook.com/roboticsUAP.cse" target="_blank" aria-label="Facebook" style="display: inline-flex; align-items: center; justify-content: center;">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+                    </svg>
+                </a>
+            </div>
+            <p class="footer-contact mb-2"><a href="mailto:roboticsclub@uap-bd.edu">roboticsclub@uap-bd.edu</a></p>
+            <p class="footer-location text-secondary mb-4" style="font-size: 0.9rem;">7th floor, 74/A, Green Road, Farmgate Dhaka-1205, Dhaka, Bangladesh, 1205</p>
+            <p class="copyright">© 2026 Robotics Club. All rights reserved.</p>
+
+            
+
+            <div class="mt-5" style="display: none;">
+
+                <!-- Hidden placeholders list for reference -->
+
+                <ul>
+
+                    <li>Robotics Club</li>
+
+                    <li>University of Asia Pacific</li>
+
+                    <li>[YEAR]</li>
+
+                    <li>[UNI LOGO]</li>
+
+                    <li>[CLUB LOGO]</li>
+
+                    <li>[TAGLINE / Building the future, one robot at a time]</li>
+
+                    <li>[MISSION STATEMENT]</li>
+
+                    <li>[X] - Stat numbers</li>
+
+                    <li>[CONVENER NAME]</li>
+
+                    <li>[CO-CONVENER NAME]</li>
+
+                    <li>[NAME] - Committee members</li>
+
+                    <li>[Responsibility] - Committee roles</li>
+
+                    <li>[DATE / YEAR] - Event dates</li>
+
+                    <li>[Workshop Title X]</li>
+
+                    <li>[DATE] - Workshop date</li>
+
+                    <li>[XX] - Countdown</li>
+
+                    <li>[SPONSOR X] - Past sponsors</li>
+
+                    <li>[EMAIL@EXAMPLE.COM]</li>
+
+                    <li>[PHONE NUMBER]</li>
+
+                    <li>[LINKEDIN URL]</li>
+
+                    <li>[FACEBOOK URL]</li>
+
+                    <li>[INSTAGRAM URL]</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <script src="script.js?v=27"></script>
+
+</body>
+
+</html>
+
+
+
+
+
+
