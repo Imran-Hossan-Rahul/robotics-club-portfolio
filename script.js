@@ -305,7 +305,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (activeState < 5) {
                         let angleToMouse = Math.atan2(mouse.y - anchor.y, mouse.x - anchor.x);
                         let distToMouse = Math.hypot(mouse.x - anchor.x, mouse.y - anchor.y);
-                        let lookOffset = Math.min(distToMouse * 0.05, 12); // Shift up to 12px towards mouse
+                        
+                        // Eyes move more than the mouth for a 3D parallax effect
+                        let maxOffset = this.isEye ? 30 : 10;
+                        let sensitivity = this.isEye ? 0.08 : 0.03;
+                        
+                        let lookOffset = Math.min(distToMouse * sensitivity, maxOffset); 
                         targetXOffset += Math.cos(angleToMouse) * lookOffset;
                         targetYOffset += Math.sin(angleToMouse) * lookOffset;
                     }
