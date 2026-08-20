@@ -296,10 +296,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
             update() {
                 if (mouse.isActive || isAutonomous) {
-                    let anchor = isAutonomous ? autoAnchor : mouse;
+                    let anchor = autoAnchor; // ALWAYS use autoAnchor
                     
                     let targetXOffset = this.targetOffsets[activeState].x;
                     let targetYOffset = this.targetOffsets[activeState].y;
+                    
+                    // Face follow mouse logic
+                    if (activeState < 5) {
+                        let angleToMouse = Math.atan2(mouse.y - anchor.y, mouse.x - anchor.x);
+                        let distToMouse = Math.hypot(mouse.x - anchor.x, mouse.y - anchor.y);
+                        let lookOffset = Math.min(distToMouse * 0.05, 12); // Shift up to 12px towards mouse
+                        targetXOffset += Math.cos(angleToMouse) * lookOffset;
+                        targetYOffset += Math.sin(angleToMouse) * lookOffset;
+                    }
                     
                     // Vehicle Physics (States 5 to 7)
                     if (activeState >= 5) {
@@ -479,9 +488,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 idleTimer = 0;
                 isAutonomous = false;
                 activeState = 0; // Reset to face when mouse comes back
-                // Sync auto anchor to mouse for smooth transitions
-                autoAnchor.x = mouse.x;
-                autoAnchor.y = mouse.y;
+                // Do not sync auto anchor to mouse, it will animate to top-left
             }
 
             prevMouse.x = mouse.x;
@@ -571,24 +578,32 @@ document.addEventListener('DOMContentLoaded', () => {
                 autoAnchor.x += autoAnchor.vx;
                 autoAnchor.y += autoAnchor.vy;
                 
-            } else if (mouse.isActive) {
-                // Random Surprised face while moving normally
-                if (currentVel > 2 && Math.random() < 0.005 && aweTimer <= 0) {
-                    aweTimer = 90; // Stay surprised for 1.5 seconds
-                }
-                if (aweTimer > 0) aweTimer--;
+            } else {
+                // Not idle, so it's a Face. Slide autoAnchor to top-left fixed position
+                let tx = 140; // X position under navbar
+                let ty = 140; // Y position under navbar
+                autoAnchor.x += (tx - autoAnchor.x) * 0.05;
+                autoAnchor.y += (ty - autoAnchor.y) * 0.05;
                 
-                // Interactive State Resolution
-                if (mouse.isClicked || aweTimer > 0 || isHoveringButton) {
-                    activeState = 3; // Surprised
-                } else if (directionChanges > 5 || shakeTimer > 0) {
-                    activeState = 4; // Angry / Dizzy
-                } else if (mouse.velocity > 25) {
-                    activeState = 2; // Laugh
-                } else if (idleTimer > 180) { // 3 seconds idle
-                    activeState = 1; // Sad / Bored
-                } else {
-                    activeState = 0; // Happy Default
+                if (mouse.isActive) {
+                    // Random Surprised face while moving normally
+                    if (currentVel > 2 && Math.random() < 0.005 && aweTimer <= 0) {
+                        aweTimer = 90; // Stay surprised for 1.5 seconds
+                    }
+                    if (aweTimer > 0) aweTimer--;
+                    
+                    // Interactive State Resolution
+                    if (mouse.isClicked || aweTimer > 0 || isHoveringButton) {
+                        activeState = 3; // Surprised
+                    } else if (directionChanges > 5 || shakeTimer > 0) {
+                        activeState = 4; // Angry / Dizzy
+                    } else if (mouse.velocity > 25) {
+                        activeState = 2; // Laugh
+                    } else if (idleTimer > 180) { // 3 seconds idle
+                        activeState = 1; // Sad / Bored
+                    } else {
+                        activeState = 0; // Happy Default
+                    }
                 }
             }
 
