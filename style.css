@@ -654,6 +654,7 @@ a:hover {
     padding: 2rem 5vw;
     border-right: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 10px;
   }
 
   .event-gallery-window {
@@ -662,7 +663,7 @@ a:hover {
   }
 
   .event-slide, .swiper-slide {
-    width: 70vw;
+    width: 45vw; /* Show ~2 images at once */
   }
 }
 
@@ -1309,6 +1310,7 @@ a:hover {
     padding: 1rem 5px;
     margin-left: 3px;
     margin-right: 3px;
+    margin-bottom: 10px;
     border-radius: 8px; /* Added slight radius since it's no longer full width */
   }
 }
