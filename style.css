@@ -23,9 +23,11 @@
 html {
   scroll-behavior: smooth;
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 body {
+  overflow-x: hidden;
   background: linear-gradient(135deg, var(--bg-color), #111827, var(--bg-color));
   background-size: 200% 200%;
   animation: bgGradient 15s ease infinite;
@@ -187,6 +189,12 @@ a:hover {
   padding: 5rem 0;
 }
 
+.section-header h2 {
+  font-size: clamp(1.8rem, 8vw, 3rem);
+  word-break: break-word;
+  hyphens: auto;
+}
+
 /* Buttons */
 .btn {
   display: inline-block;
@@ -326,13 +334,13 @@ a:hover {
 }
 
 #circuit-canvas {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -1;
-  pointer-events: none; /* Let clicks pass through to the page below */
+  z-index: 0;
+  pointer-events: none;
 }
 
 .logos-lockup {
@@ -483,16 +491,28 @@ a:hover {
 /* Committee Section */
 .core-leaders {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 2.5rem;
   max-width: 1300px;
   margin-left: auto;
   margin-right: auto;
 }
 
+.executive-leaders {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 12px;
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.leader-card {
+  text-align: center;
+}
+
 .leader-card.prominent {
   padding: 3rem 2.5rem;
-  text-align: center;
 }
 
 .committee-grid {
@@ -522,7 +542,9 @@ a:hover {
 
 .leader-photo, .placeholder-photo {
   width: 120px;
-  height: 120px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  max-width: 100%;
   border-radius: 50%;
   background: #1f2937;
   margin: 0 auto 1.2rem;
@@ -533,21 +555,29 @@ a:hover {
 
 .prominent .leader-photo, .prominent .placeholder-photo {
   width: 280px;
-  height: 280px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  max-width: 100%;
 }
 
 .leader-name {
   font-size: 1.3rem;
   margin-bottom: 0.2rem;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 .leader-role {
   font-family: var(--font-heading);
-  font-size: 1.0rem;
+  font-size: 0.8rem;
   color: var(--text-secondary);
   font-weight: 500;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 .leader-desc {
@@ -1116,7 +1146,7 @@ a:hover {
 
 @media (max-width: 768px) {
   .core-leaders {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 1.5rem;
   }
 
@@ -1126,7 +1156,6 @@ a:hover {
 
   .prominent .leader-photo, .prominent .placeholder-photo {
     width: 200px;
-    height: 200px;
   }
 
   .workshops-grid {
@@ -1287,9 +1316,11 @@ a:hover {
   }
 
   .announcement-title {
-    font-size: 1.4rem !important;
-    padding: 10px 15px !important;
+    font-size: clamp(1rem, 6vw, 1.4rem) !important;
+    padding: 8px 12px !important;
     white-space: normal;
+    word-break: break-word;
+    hyphens: auto;
   }
 
   .announcement-glow {
@@ -1429,4 +1460,70 @@ a:hover {
   .benefit-card:last-child {
     width: 100% !important;
   }
+  .executive-leaders {
+    gap: 1rem 8px !important;
+  }
+  .executive-leaders .leader-card {
+    padding: 0.8rem 0.3rem !important;
+  }
+  .executive-leaders .leader-name {
+    font-size: 0.8rem !important;
+    word-break: break-word;
+    hyphens: auto;
+  }
+  .executive-leaders .leader-role {
+    font-size: 0.55rem !important;
+    letter-spacing: 0.5px !important;
+  }
+  .executive-leaders .leader-photo, 
+  .executive-leaders .placeholder-photo {
+    width: 60px !important;
+  }
 }
+
+@media (max-width: 230px) {
+  .executive-leaders {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  .executive-leaders .leader-card {
+    padding: 1.2rem 1rem !important;
+  }
+  .executive-leaders .leader-name {
+    font-size: 1rem !important;
+  }
+  .executive-leaders .leader-role {
+    font-size: 0.7rem !important;
+  }
+  .executive-leaders .leader-photo, 
+  .executive-leaders .placeholder-photo {
+    width: 80px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .committee .container {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+  .executive-leaders {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .executive-leaders .leader-card {
+    padding: 1rem 0.5rem;
+  }
+  .executive-leaders .leader-photo, 
+  .executive-leaders .placeholder-photo {
+    width: 70px;
+    margin-bottom: 0.8rem;
+  }
+  .executive-leaders .leader-name {
+    font-size: 0.9rem;
+  }
+  .executive-leaders .leader-role {
+    font-size: 0.65rem;
+  }
+}
+

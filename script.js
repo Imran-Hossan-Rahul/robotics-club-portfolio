@@ -295,8 +295,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         class Microbot {
             constructor(targetOffsets, index, totalBots) {
-                this.x = Math.random() * (width || window.innerWidth);
-                this.y = Math.random() * (height || window.innerHeight);
+                this.x = ((width || window.innerWidth) / 2) + (Math.random() - 0.5) * 200;
+                this.y = ((height || window.innerHeight) / 2) + (Math.random() - 0.5) * 200;
                 this.vx = (Math.random() - 0.5) * 2;
                 this.vy = (Math.random() - 0.5) * 2;
                 this.targetOffsets = targetOffsets; 
