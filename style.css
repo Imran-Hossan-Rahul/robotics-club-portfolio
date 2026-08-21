@@ -1347,21 +1347,27 @@ a:hover {
     border-radius: 8px; /* Added slight radius since it's no longer full width */
   }
 
-  /* Make ambient orbs visible on mobile by reducing blur and increasing relative size */
+  /* Make ambient orbs visible on mobile by reducing blur and adjusting position */
   .orb {
-    filter: blur(60px); 
+    filter: blur(40px); 
   }
   .orb-1 {
-    width: 80vw;
-    height: 80vw;
+    width: 250px;
+    height: 250px;
+    top: 5%;
+    left: -20px;
   }
   .orb-2 {
-    width: 70vw;
-    height: 70vw;
+    width: 220px;
+    height: 220px;
+    bottom: 5%;
+    right: -20px;
   }
   .orb-3 {
-    width: 60vw;
-    height: 60vw;
+    width: 200px;
+    height: 200px;
+    top: 45%;
+    left: 20%;
   }
 
   /* Fix for full-width-container to prevent excessive gaps */
