@@ -1,4 +1,27 @@
+import { Space_Grotesk, Inter, Orbitron } from 'next/font/google';
 import "./globals.css";
+
+// Fonts loaded via next/font — self-hosted, non-blocking, optimized
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  weight: ['500', '600', '700'],
+  variable: '--font-space-grotesk',
+  display: 'swap',
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  variable: '--font-inter',
+  display: 'swap',
+});
+
+const orbitron = Orbitron({
+  subsets: ['latin'],
+  weight: ['500', '700'],
+  variable: '--font-orbitron',
+  display: 'swap',
+});
 
 export const metadata = {
   title: "UAP Robotics Club",
@@ -7,22 +30,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <head>
-        {/* CSS is loaded via @import in globals.css to ensure correct order */}
-      </head>
+    <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable} ${orbitron.variable}`}>
+      <head />
       <body className="dark-theme">
         {children}
-
-        {/* Bootstrap JS */}
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" async></script>
-        {/* GSAP */}
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" async></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" async></script>
-        {/* Swiper JS */}
-        <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js" async></script>
-        {/* Fancybox JS */}
-        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js" async></script>
       </body>
     </html>
   );

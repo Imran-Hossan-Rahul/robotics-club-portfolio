@@ -1,7 +1,8 @@
-@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Orbitron:wght@500;700&family=Space+Grotesk:wght@500;600;700&display=swap');
-@import url('https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css');
-@import url('https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css');
+/* Fonts loaded via next/font in layout.js — no blocking @import needed */
+/* Swiper CSS loaded via NPM in Events.jsx — no CDN duplicate */
+/* Fancybox CSS loaded via NPM in page.js — no CDN duplicate */
+/* Bootstrap utilities replaced with custom CSS below */
+
 
 :root {
   --bg-color: #0A0E14;
@@ -12,9 +13,9 @@
   --accent-amber: #F59E0B;
   --border-cyan: rgba(34, 211, 238, 0.15);
   
-  --font-heading: 'Orbitron', sans-serif;
-  --font-body: 'Inter', sans-serif;
-  --font-mono: 'Space Grotesk', sans-serif;
+  --font-heading: var(--font-orbitron), 'Orbitron', sans-serif;
+  --font-body: var(--font-inter), 'Inter', sans-serif;
+  --font-mono: var(--font-space-grotesk), 'Space Grotesk', sans-serif;
 
   --transition-speed: 0.3s;
 }
@@ -48,6 +49,43 @@ body {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+
+/* ===== BOOTSTRAP UTILITY REPLACEMENTS (replaces 170KB CDN) ===== */
+.container { width: 100%; max-width: 1140px; margin-left: auto; margin-right: auto; padding-left: 15px; padding-right: 15px; }
+.container-fluid { width: 100%; padding-left: 15px; padding-right: 15px; }
+.text-center { text-align: center !important; }
+.text-secondary { color: var(--text-secondary) !important; }
+.fw-bold { font-weight: 700 !important; }
+.position-relative { position: relative !important; }
+.d-flex { display: flex !important; }
+.d-none { display: none !important; }
+.d-block { display: block !important; }
+.align-items-center { align-items: center !important; }
+.justify-content-center { justify-content: center !important; }
+/* Spacing utilities */
+.mt-4 { margin-top: 1.5rem !important; }
+.mt-5 { margin-top: 3rem !important; }
+.mb-3 { margin-bottom: 1rem !important; }
+.mb-4 { margin-bottom: 1.5rem !important; }
+.mb-5 { margin-bottom: 3rem !important; }
+.pt-4 { padding-top: 1.5rem !important; }
+.pt-5 { padding-top: 3rem !important; }
+.pb-4 { padding-bottom: 1.5rem !important; }
+.pb-5 { padding-bottom: 3rem !important; }
+.p-4 { padding: 1.5rem !important; }
+.px-3 { padding-left: 1rem !important; padding-right: 1rem !important; }
+/* Display utilities at breakpoints */
+.display-4 { font-size: clamp(1.8rem, 5vw, 2.5rem); line-height: 1.2; }
+.display-5 { font-size: clamp(1.5rem, 4vw, 2rem); line-height: 1.2; }
+.display-6 { font-size: clamp(1.2rem, 3vw, 1.75rem); line-height: 1.2; }
+/* Responsive padding */
+@media (min-width: 768px) {
+  .p-md-5 { padding: 3rem !important; }
+  .px-md-5 { padding-left: 3rem !important; padding-right: 3rem !important; }
+}
+/* ===== END BOOTSTRAP REPLACEMENTS ===== */
+
+
 
 /* Cinematic Ambient Orbs */
 .ambient-orbs-container {
@@ -248,21 +286,24 @@ a:hover {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(10, 14, 20, 0.4);
-  backdrop-filter: blur(12px) saturate(120%);
-  -webkit-backdrop-filter: blur(12px) saturate(120%);
-  transform: translateZ(0);
+  background: rgba(10, 14, 20, 0.15) !important; /* Very transparent for pure glass */
+  backdrop-filter: blur(20px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3) !important;
+  transform: translate3d(0, 0, 0) !important;
+  backface-visibility: hidden !important;
+  -webkit-backface-visibility: hidden !important;
   z-index: 1000;
-  border-bottom: 1px solid var(--border-cyan);
   padding: 1rem 0;
   transition: padding var(--transition-speed), background var(--transition-speed);
 }
 
 .navbar.scrolled-logo {
-  padding: 0.5rem 0;
-  background: rgba(10, 14, 20, 0.7);
-  backdrop-filter: blur(16px) saturate(120%);
-  -webkit-backdrop-filter: blur(16px) saturate(120%);
+  padding: 0.5rem 0 !important;
+  background: rgba(10, 14, 20, 0.35) !important; /* Slightly darker on scroll but still pure glass */
+  backdrop-filter: blur(24px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(150%) !important;
 }
 
 .nav-container {
@@ -507,12 +548,17 @@ a:hover {
 }
 
 .executive-leaders {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 12px;
-  max-width: 1300px;
+  max-width: 1500px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.executive-leaders .leader-card {
+  width: calc(33.333% - 8px);
 }
 
 .leader-card {
@@ -1496,8 +1542,8 @@ a:hover {
 }
 
 @media (max-width: 230px) {
-  .executive-leaders {
-    grid-template-columns: minmax(0, 1fr) !important;
+  .executive-leaders .leader-card {
+    width: 100% !important;
   }
   .executive-leaders .leader-card {
     padding: 1.2rem 1rem !important;
@@ -1522,8 +1568,10 @@ a:hover {
     padding-right: 12px !important;
   }
   .executive-leaders {
-    grid-template-columns: 1fr 1fr;
     gap: 12px;
+  }
+  .executive-leaders .leader-card {
+    width: calc(50% - 6px);
   }
   .executive-leaders .leader-card {
     padding: 1rem 0.5rem;
@@ -1686,4 +1734,11 @@ img:not([src*='logo']):not([alt*='Logo']):not([alt*='UAP']) {
   color: var(--text-primary);
   letter-spacing: 2px;
   margin-bottom: 1rem;
+}
+
+/* Custom Responsive Utilities */
+@media (min-width: 768px) {
+  .d-md-none {
+    display: none !important;
+  }
 }

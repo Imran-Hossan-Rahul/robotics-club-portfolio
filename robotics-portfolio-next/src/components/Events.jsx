@@ -1,50 +1,27 @@
 "use client";
-import { useEffect } from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Autoplay } from 'swiper/modules';
+import Image from 'next/image';
+import { useInView } from 'react-intersection-observer'
+import styles from './Events.module.css'
+import 'swiper/css';
+import 'swiper/css/navigation';
 
 export default function Events() {
-  useEffect(() => {
-    // Initialize Swiper for each event gallery
-    const initSwipers = () => {
-      if (!window.Swiper) return
-      const swiperInstances = document.querySelectorAll('.event-gallery-window.swiper')
-      swiperInstances.forEach((swiperEl) => {
-        if (swiperEl.swiper) return // already initialized
-        new window.Swiper(swiperEl, {
-          loop: true,
-          slidesPerView: 'auto',
-          spaceBetween: 12,
-          autoplay: {
-            delay: 2500,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true,
-          },
-          navigation: {
-            nextEl: swiperEl.querySelector('.swiper-button-next'),
-            prevEl: swiperEl.querySelector('.swiper-button-prev'),
-          },
-          grabCursor: true,
-          speed: 800,
-        })
-      })
-    }
-
-    initSwipers()
-    const timer = setTimeout(initSwipers, 500)
-    return () => clearTimeout(timer)
-  }, [])
+  const { ref: sectionRef, inView } = useInView({ triggerOnce: true, threshold: 0.02, rootMargin: '0px 0px 50px 0px' })
 
   return (
-    <section className="events section mt-5 pt-5" id="events">
+    <section className={`events section mt-5 pt-5 fade-in ${inView ? 'visible' : ''}`} id="events" ref={sectionRef}>
 
       {/* Banner */}
       <div className="container text-center mb-5 pb-4">
-        <div className="events-banner" style={{ position: 'relative', padding: 'clamp(2rem, 5vw, 4rem) clamp(0.5rem, 3vw, 2rem)', overflow: 'hidden', borderRadius: '30px', pointerEvents: 'none' }}>
-          <div style={{ position: 'absolute', top: '-100%', left: '-25%', width: '100%', height: '300%', background: 'radial-gradient(circle, rgba(34,211,238,0.1) 0%, rgba(34,211,238,0) 60%)', transform: 'rotate(30deg)', pointerEvents: 'none' }}></div>
-          <div style={{ position: 'absolute', bottom: '-100%', right: '-25%', width: '100%', height: '300%', background: 'radial-gradient(circle, rgba(245,158,11,0.05) 0%, rgba(245,158,11,0) 60%)', transform: 'rotate(-30deg)', pointerEvents: 'none' }}></div>
-          <h2 className="fw-bold mb-3" style={{ fontSize: 'clamp(1.5rem, 10vw, 4rem)', color: 'var(--text-primary)', textTransform: 'uppercase', letterSpacing: 'clamp(1px, 1vw, 4px)', textShadow: '0 0 20px rgba(34, 211, 238, 0.4)' }}>
-            Flagship <br className="d-md-none" /><span style={{ color: 'var(--accent-cyan)' }}>Events</span>
+        <div className={`events-banner ${styles.eventsBanner}`}>
+          <div className={styles.bannerBg1}></div>
+          <div className={styles.bannerBg2}></div>
+          <h2 className={`fw-bold mb-3 ${styles.bannerTitle}`}>
+            Flagship <br className="d-md-none" /><span className={styles.bannerTitleAccent}>Events</span>
           </h2>
-          <div style={{ width: 'clamp(60px, 15vw, 100px)', height: '4px', background: 'var(--accent-cyan)', margin: '0 auto', borderRadius: '2px', boxShadow: '0 0 15px var(--accent-cyan)' }}></div>
+          <div className={styles.bannerDivider}></div>
         </div>
       </div>
 
@@ -55,7 +32,7 @@ export default function Events() {
           <div className="event-date text-secondary">Fall 2025</div>
         </div>
         <div className="event-pin-container">
-          <div className="event-details-sidebar">
+          <div className={`event-details-sidebar ${styles.eventDetailsSidebar}`}>
             <p className="event-desc mb-4">Innovation took center stage at the University of Asia Pacific Robotics Club as we successfully hosted <strong>Robo Expo 3.0</strong>, our Intra-University Robotics Competition for Fall 2025.</p>
             <p className="event-desc mb-4">From creative engineering solutions to competitive robotic innovations, the event showcased the passion, dedication, and technical excellence of UAP students.</p>
             <p className="event-desc mb-4">A heartfelt thank you to all participants, volunteers, judges, and faculty members for making this event a remarkable success.</p>
@@ -68,17 +45,31 @@ export default function Events() {
               </div>
             </div>
           </div>
-          <div className="event-gallery-window swiper">
-            <div className="swiper-wrapper">
-              {[1,2,3,4,5,6,7].map(n => (
-                <div className="event-slide swiper-slide" key={n}>
-                  <img src={`/photo/flagship-expo-3.0-image-${n}.jpg`} alt="Robo Expo 3" className="card-bg-img" />
-                </div>
-              ))}
-            </div>
-            <div className="swiper-button-prev"></div>
-            <div className="swiper-button-next"></div>
-          </div>
+          <Swiper
+            className="event-gallery-window"
+            modules={[Navigation, Autoplay]}
+            loop={true}
+            breakpoints={{
+              320: { slidesPerView: 1.2 },
+              768: { slidesPerView: 2.2 },
+              1024: { slidesPerView: 2.5 }
+            }}
+            spaceBetween={12}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            navigation={true}
+            grabCursor={true}
+            speed={800}
+          >
+            {[1,2,3,4,5,6,7].map(n => (
+              <SwiperSlide className="event-slide" key={n}>
+                <Image src={`/photo/flagship-expo-3.0-image-${n}.jpg`} alt="Robo Expo 3" fill sizes="(max-width: 768px) 100vw, 50vw" className="card-bg-img" />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
 
@@ -192,7 +183,7 @@ export default function Events() {
           <div className="event-date text-secondary">2024</div>
         </div>
         <div className="event-pin-container">
-          <div className="event-details-sidebar">
+          <div className={`event-details-sidebar ${styles.eventDetailsSidebar}`}>
             <p className="event-desc mb-4">On <strong>November 24, 2024</strong>, the Robotics Club, CSE-UAP, hosted an unforgettable event showcasing groundbreaking robotics projects and innovations!</p>
             <p className="event-desc mb-4">We were honored to have <strong>Prof. Dr. Sultan Mahmud</strong>, Pro Vice-Chancellor of UAP, along with the esteemed Heads &amp; Faculty members of the CSE department, join us in celebrating the spirit of creativity and learning!</p>
             <p className="event-desc mb-4">Huge thanks to all the brilliant participants and attendees who made <strong>Robo Expo 2.0</strong> a tremendous success!</p>
@@ -205,21 +196,35 @@ export default function Events() {
               </div>
             </div>
           </div>
-          <div className="event-gallery-window swiper">
-            <div className="swiper-wrapper">
-              {['flagship-expo-2.0-image-1.jpeg','flagship-expo-2.0-image-2.jpeg','flagship-expo-2.0-image-3.jpeg',
-                'flagship-expo-2.0-image-4.jpeg','flagship-expo-2.0-image-5.jpg','flagship-expo-2.0-image-6.jpeg',
-                'flagship-expo-2.0-image-7.jpeg','flagship-expo-2.0-image-8.jpeg','flagship-expo-2.0-image-9.jpeg',
-                'flagship-expo-2.0-image-10.jpeg','flagship-expo-2.0-image-10.jpg','flagship-expo-2.0-image-11.jpg',
-                'flagship-expo-2.0-image-112.jpg','flagship-expo-2.0-image-13.jpg'].map((img, i) => (
-                <div className="event-slide swiper-slide" key={i}>
-                  <img src={`/photo/${img}`} alt="Robo Expo 2" className="card-bg-img" />
-                </div>
-              ))}
-            </div>
-            <div className="swiper-button-prev"></div>
-            <div className="swiper-button-next"></div>
-          </div>
+          <Swiper
+            className="event-gallery-window"
+            modules={[Navigation, Autoplay]}
+            loop={true}
+            breakpoints={{
+              320: { slidesPerView: 1.2 },
+              768: { slidesPerView: 2.2 },
+              1024: { slidesPerView: 2.5 }
+            }}
+            spaceBetween={12}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            navigation={true}
+            grabCursor={true}
+            speed={800}
+          >
+            {['flagship-expo-2.0-image-1.jpeg','flagship-expo-2.0-image-2.jpeg','flagship-expo-2.0-image-3.jpeg',
+              'flagship-expo-2.0-image-4.jpeg','flagship-expo-2.0-image-5.jpg','flagship-expo-2.0-image-6.jpeg',
+              'flagship-expo-2.0-image-7.jpeg','flagship-expo-2.0-image-8.jpeg','flagship-expo-2.0-image-9.jpeg',
+              'flagship-expo-2.0-image-10.jpeg','flagship-expo-2.0-image-10.jpg','flagship-expo-2.0-image-11.jpg',
+              'flagship-expo-2.0-image-112.jpg','flagship-expo-2.0-image-13.jpg'].map((img, i) => (
+              <SwiperSlide className="event-slide" key={i}>
+                <Image src={`/photo/${img}`} alt="Robo Expo 2" fill sizes="(max-width: 768px) 100vw, 50vw" className="card-bg-img" />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
 
@@ -230,7 +235,7 @@ export default function Events() {
           <div className="event-date text-secondary">2022</div>
         </div>
         <div className="event-pin-container mb-5">
-          <div className="event-details-sidebar">
+          <div className={`event-details-sidebar ${styles.eventDetailsSidebar}`}>
             <p className="event-desc mb-4">The story of how the very first Expo was organized and its initial success. This laid the foundation for our robotics community and sparked a culture of innovation.</p>
             <div className="segments-section mb-4">
               <h4>Key Segments</h4>
@@ -241,17 +246,31 @@ export default function Events() {
               </div>
             </div>
           </div>
-          <div className="event-gallery-window swiper">
-            <div className="swiper-wrapper">
-              {[1,2,3,4,5,6].map(n => (
-                <div className="event-slide swiper-slide" key={n}>
-                  <img src={`/photo/flagship-expo-1.0-image-${n}.jpg`} alt="Robo Expo 1" className="card-bg-img" />
-                </div>
-              ))}
-            </div>
-            <div className="swiper-button-prev"></div>
-            <div className="swiper-button-next"></div>
-          </div>
+          <Swiper
+            className="event-gallery-window"
+            modules={[Navigation, Autoplay]}
+            loop={true}
+            breakpoints={{
+              320: { slidesPerView: 1.2 },
+              768: { slidesPerView: 2.2 },
+              1024: { slidesPerView: 2.5 }
+            }}
+            spaceBetween={12}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            navigation={true}
+            grabCursor={true}
+            speed={800}
+          >
+            {[1,2,3,4,5,6].map(n => (
+              <SwiperSlide className="event-slide" key={n}>
+                <Image src={`/photo/flagship-expo-1.0-image-${n}.jpg`} alt="Robo Expo 1" fill sizes="(max-width: 768px) 100vw, 50vw" className="card-bg-img" />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
 

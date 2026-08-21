@@ -1,69 +1,54 @@
 "use client";
 
 import { useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
-import Committee from '../components/Committee';
-import Events from '../components/Events';
-import Workshops from '../components/Workshops';
-import Teaser from '../components/Teaser';
-import Partner from '../components/Partner';
-import Footer from '../components/Footer';
+
+// Dynamically import components below the fold to reduce initial JS bundle size
+const Committee = dynamic(() => import('../components/Committee'));
+const Events = dynamic(() => import('../components/Events'));
+const Workshops = dynamic(() => import('../components/Workshops'));
+const Teaser = dynamic(() => import('../components/Teaser'));
+const Partner = dynamic(() => import('../components/Partner'));
+const Footer = dynamic(() => import('../components/Footer'));
 
 export default function Home() {
-  // Global: Scroll-triggered fade-in animations (Intersection Observer)
   useEffect(() => {
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px 0px 50px 0px',
-      threshold: 0.02,
-    }
+    let fancyboxInstance = null;
 
-    const observer = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible')
-          obs.unobserve(entry.target)
-        }
-      })
-    }, observerOptions)
-
-    const elements = document.querySelectorAll('.fade-in')
-    elements.forEach(el => observer.observe(el))
-
-    return () => observer.disconnect()
-  }, [])
-
-  // Global: Fancybox init
-  useEffect(() => {
-    const initFancybox = () => {
-      if (window.Fancybox) {
-        window.Fancybox.bind("img:not([src*='logo']):not([alt*='Logo']):not([alt*='UAP'])", {
-          groupAll: false,
-          hideScrollbar: true,
-          showClass: 'f-fadeIn',
-          hideClass: 'f-fadeOut',
-          Thumbs: false,
-          compact: false,
-          closeButton: false,
-          idle: false,
-          Images: { initialSize: 'fit' },
-          Toolbar: {
-            autoHide: false,
-            display: {
-              left: [],
-              middle: ['zoomIn', 'zoomOut', 'close'],
-              right: [],
-            },
+    // Dynamically load Fancybox to prevent it from blocking the initial page load JS bundle
+    Promise.all([
+      import("@fancyapps/ui"),
+      import("@fancyapps/ui/dist/fancybox/fancybox.css")
+    ]).then(([{ Fancybox }]) => {
+      fancyboxInstance = Fancybox;
+      fancyboxInstance.bind("img:not([src*='logo']):not([alt*='Logo']):not([alt*='UAP'])", {
+        groupAll: false,
+        hideScrollbar: true,
+        showClass: 'f-fadeIn',
+        hideClass: 'f-fadeOut',
+        Thumbs: false,
+        compact: false,
+        closeButton: false,
+        idle: false,
+        Images: { initialSize: 'fit' },
+        Toolbar: {
+          autoHide: false,
+          display: {
+            left: [],
+            middle: ['zoomIn', 'zoomOut', 'close'],
+            right: [],
           },
-        })
+        },
+      });
+    });
+    
+    return () => {
+      if (fancyboxInstance) {
+        fancyboxInstance.destroy();
       }
     }
-
-    // Try immediately, then retry after short delay if Fancybox not loaded yet
-    initFancybox()
-    const timer = setTimeout(initFancybox, 500)
-    return () => clearTimeout(timer)
   }, [])
 
   return (

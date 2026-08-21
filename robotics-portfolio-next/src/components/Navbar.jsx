@@ -1,69 +1,63 @@
 "use client";
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import Image from 'next/image'
 
 export default function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [showLogo, setShowLogo] = useState(false)
+
   useEffect(() => {
-    // Mobile Navigation Toggle
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn')
-    const navLinks = document.querySelector('.nav-links')
-
-    const handleMenuToggle = () => {
-      navLinks.classList.toggle('active')
-    }
-    const handleLinkClick = () => {
-      navLinks.classList.remove('active')
-    }
-
-    if (mobileMenuBtn) {
-      mobileMenuBtn.addEventListener('click', handleMenuToggle)
-    }
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', handleLinkClick)
-    })
-
-    // Sticky Navbar + logo animation on scroll
-    const navbar = document.getElementById('navbar')
-    const heroMainLogo = document.getElementById('hero-main-logo')
-    const navAnimatedLogoWrapper = document.getElementById('nav-animated-logo-wrapper')
-
     const handleScroll = () => {
+      // Handle navbar background/padding shrink
       if (window.scrollY > 50) {
-        navbar.classList.add('scrolled-logo')
+        setIsScrolled(true)
       } else {
-        navbar.classList.remove('scrolled-logo')
+        setIsScrolled(false)
       }
 
-      if (heroMainLogo && navAnimatedLogoWrapper) {
+      // Handle logo appearance in navbar when main hero logo scrolls out
+      const heroMainLogo = document.getElementById('hero-main-logo')
+      if (heroMainLogo) {
         const heroLogoRect = heroMainLogo.getBoundingClientRect()
         if (heroLogoRect.bottom < 60) {
-          navAnimatedLogoWrapper.style.opacity = '1'
-          navAnimatedLogoWrapper.style.maxHeight = '50px'
+          setShowLogo(true)
         } else {
-          navAnimatedLogoWrapper.style.opacity = '0'
-          navAnimatedLogoWrapper.style.maxHeight = '0px'
+          setShowLogo(false)
         }
       }
     }
 
     window.addEventListener('scroll', handleScroll)
+    // Run once on mount to set initial state
+    handleScroll()
 
     return () => {
-      if (mobileMenuBtn) mobileMenuBtn.removeEventListener('click', handleMenuToggle)
-      document.querySelectorAll('.nav-links a').forEach(link => {
-        link.removeEventListener('click', handleLinkClick)
-      })
       window.removeEventListener('scroll', handleScroll)
     }
   }, [])
 
   return (
-    <nav className="navbar" id="navbar">
+    <nav className={`navbar ${isScrolled ? 'scrolled-logo' : ''}`} id="navbar" style={{ 
+      background: 'rgba(10, 14, 20, 0.25)', 
+      backdropFilter: 'blur(20px) saturate(150%)', 
+      WebkitBackdropFilter: 'blur(20px) saturate(150%)',
+      borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
+      boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)'
+    }}>
       <div className="nav-container">
-        <div className="nav-logo" id="nav-logo-left" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 0, transform: 'translateY(-1px)' }}>
-          <div id="nav-animated-logo-wrapper" style={{ maxHeight: 0, opacity: 0, overflow: 'hidden', transition: 'all 0.4s ease', display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
-            <img src="/photo/robotics-club-logo.png" alt="Robotics Club" style={{ width: '35px', height: 'auto', marginBottom: '2px' }} />
+        <div className="nav-logo" id="nav-logo-left" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', height: '60px' }}>
+          <div id="nav-animated-logo-wrapper" style={{ 
+            height: showLogo ? '45px' : '0px', 
+            opacity: showLogo ? '1' : '0', 
+            overflow: 'hidden', 
+            transition: 'all 0.4s ease', 
+            display: 'flex', 
+            justifyContent: 'flex-end', 
+            flexDirection: 'column' 
+          }}>
+            <Image src="/photo/robotics-club-logo.png" alt="Robotics Club" width={35} height={35} style={{ width: '35px', height: 'auto', marginBottom: '2px' }} />
           </div>
-          <span style={{ fontWeight: 'bold', fontFamily: 'var(--font-heading)', color: 'var(--text-primary)', fontSize: '0.8rem', lineHeight: 1 }}>Robotics Club</span>
+          <span style={{ fontWeight: 'bold', fontFamily: 'var(--font-heading)', color: 'var(--text-primary)', fontSize: '0.8rem', lineHeight: 1, paddingBottom: '2px' }}>Robotics Club</span>
         </div>
         <div className="nav-links">
           <a href="#committee">Committee</a>
@@ -71,16 +65,11 @@ export default function Navbar() {
           <a href="#workshops">Workshops</a>
         </div>
         <div className="nav-right" style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
-          <div className="nav-uap-logo" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '2px', transform: 'translateY(0)' }}>
-            <img src="/photo/university-logo.png" alt="UAP" style={{ width: '36px', height: 'auto' }} />
-            <span style={{ fontWeight: 'bold', fontFamily: 'var(--font-heading)', color: 'var(--text-primary)', fontSize: '0.8rem', lineHeight: 1 }}>UAP</span>
-          </div>
-          <div className="mobile-nav-controls">
-            <button className="mobile-menu-btn" aria-label="Toggle menu">
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
+          <div className="nav-uap-logo" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', height: '60px' }}>
+            <div style={{ display: 'flex', justifyContent: 'flex-end', flexDirection: 'column', height: '45px' }}>
+              <Image src="/photo/university-logo.png" alt="UAP" width={36} height={36} style={{ width: '36px', height: 'auto', marginBottom: '2px' }} />
+            </div>
+            <span style={{ fontWeight: 'bold', fontFamily: 'var(--font-heading)', color: 'var(--text-primary)', fontSize: '0.8rem', lineHeight: 1, paddingBottom: '2px' }}>UAP</span>
           </div>
         </div>
       </div>

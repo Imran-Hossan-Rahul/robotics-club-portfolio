@@ -1,7 +1,10 @@
 "use client";
+import Image from 'next/image';
+import { useInView } from 'react-intersection-observer'
 export default function Committee() {
+  const { ref: sectionRef, inView } = useInView({ triggerOnce: true, threshold: 0.02, rootMargin: '0px 0px 50px 0px' })
   return (
-    <section className="committee section fade-in" id="committee" style={{ paddingTop: '50px' }}>
+    <section className={`committee section fade-in ${inView ? 'visible' : ''}`} id="committee" style={{ paddingTop: '50px' }} ref={sectionRef}>
       <div className="container">
         <div className="section-header text-center">
           <h2>Leadership</h2>
@@ -10,18 +13,20 @@ export default function Committee() {
         {/* Core Leaders */}
         <div className="core-leaders mt-4">
           <div className="leader-card prominent">
-            <img src="/photo/convener.jpeg" alt="Convener" className="leader-photo" />
+            <Image src="/photo/convener.jpeg" alt="Convener" width={400} height={400} className="leader-photo" />
             <h3 className="leader-name">A S Zaforullah Momtaz</h3>
             <div className="leader-role">CONVENER</div>
           </div>
           <div className="leader-card prominent">
-            <img src="/photo/co-convener.jpeg" alt="Co-Convener" className="leader-photo" />
+            <Image src="/photo/co-convener.jpeg" alt="Co-Convener" width={400} height={400} className="leader-photo" />
             <h3 className="leader-name">Dr. Nazmun Nahid</h3>
             <div className="leader-role">CO-CONVENER</div>
           </div>
         </div>
+      </div>
 
-        {/* Executive Leaders */}
+      {/* Executive Leaders - Wider Container */}
+      <div className="container-fluid px-3 px-md-5">
         <div className="executive-leaders mt-5">
           {[
             { img: 'nazia rahman omee.jpg', name: 'Nazia Rahman Omee', role: 'PRESIDENT' },
@@ -42,7 +47,7 @@ export default function Committee() {
             { img: 'LINET JOACHIM ROZARIO (Club Representative).jpg', name: 'Linet Joachim Rozario', role: 'CLUB REPRESENTATIVE' },
           ].map((member, idx) => (
             <div className="leader-card" key={idx}>
-              <img src={`/photo/${member.img}`} alt={member.role} className="leader-photo" />
+              <Image src={`/photo/${member.img}`} alt={member.role} width={200} height={200} className="leader-photo" />
               <h3 className="leader-name">{member.name}</h3>
               <div className="leader-role">{member.role}</div>
             </div>
@@ -54,7 +59,7 @@ export default function Committee() {
       <div className="expo-highlight-grid mt-5">
         {['robo-expo-3.jpg', 'robo-expo-2.jpeg', 'robo-expo-1.png', 'under-4.jpg', 'under-5.jpg', 'under-6.jpg', 'under-7.jpg', 'under-8.jpg'].map((img, idx) => (
           <div className="event-highlight-card" style={{ padding: 0 }} key={idx}>
-            <img src={`/photo/${img}`} alt={`Event ${idx + 1}`} className="expo-photo" />
+            <Image src={`/photo/${img}`} alt={`Event ${idx + 1}`} width={800} height={600} className="expo-photo" />
           </div>
         ))}
       </div>
@@ -161,8 +166,9 @@ export default function Committee() {
               background: '#ffffff', display: 'flex', alignItems: 'center',
               justifyContent: 'center', position: 'relative', overflow: 'hidden',
             }}>
-              <img src="/photo/745a421a-f181-415a-ab98-c771c1ecd470.jpg" alt="IRO Bangladesh Open 2026"
-                style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain' }} />
+              <Image src="/photo/745a421a-f181-415a-ab98-c771c1ecd470.jpg" alt="IRO Bangladesh Open 2026"
+                width={800} height={500}
+                style={{ width: '100%', height: 'auto', border: '1px solid var(--border-cyan)', padding: '4px' }} />
             </div>
 
             {/* Right: content */}
@@ -201,14 +207,14 @@ export default function Committee() {
               </div>
 
               {/* CTAs */}
-              <div className="expo-btn-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginTop: '20px' }}>
-                <a href="https://www.bdro.org" target="_blank" rel="noopener noreferrer" className="btn btn-amber expo-btn"
-                  style={{ flex: '1 1 140px', minWidth: 0, textAlign: 'center', justifyContent: 'center', padding: '12px 15px', fontSize: 'clamp(0.85rem, 4vw, 1rem)' }}>
-                  Register → bdro.org
-                </a>
+              <div className="expo-btn-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginTop: '20px', alignItems: 'flex-start', justifyContent: 'center' }}>
                 <a href="https://www.facebook.com/photo.php?fbid=1475872681228466&set=a.554159330066477" target="_blank" rel="noopener noreferrer" className="btn btn-outline expo-btn"
-                  style={{ flex: '1 1 120px', minWidth: 0, border: '1px solid rgba(34,211,238,0.35)', textAlign: 'center', justifyContent: 'center', padding: '12px 15px', fontSize: 'clamp(0.85rem, 4vw, 1rem)' }}>
+                  style={{ flex: '0 1 auto', border: '1px solid rgba(34,211,238,0.35)', textAlign: 'center', justifyContent: 'center', padding: '10px 18px', fontSize: 'clamp(0.75rem, 3.5vw, 0.95rem)', whiteSpace: 'nowrap' }}>
                   View Post
+                </a>
+                <a href="https://www.bdro.org" target="_blank" rel="noopener noreferrer" className="btn btn-amber expo-btn"
+                  style={{ flex: '0 1 auto', textAlign: 'center', justifyContent: 'center', padding: '10px 18px', fontSize: 'clamp(0.75rem, 3.5vw, 0.95rem)', whiteSpace: 'normal', wordBreak: 'break-word', lineHeight: 1.4 }}>
+                  Register → bdro.org
                 </a>
               </div>
             </div>
