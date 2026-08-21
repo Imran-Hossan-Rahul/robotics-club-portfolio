@@ -855,11 +855,6 @@ window.copyEmail = function(e, email, copyBtn) {
         copyBtn.classList.remove('btn-outline');
         copyBtn.classList.add('btn-amber');
         
-        setTimeout(() => {
-            copyBtn.innerHTML = originalHTML;
-            copyBtn.classList.remove('btn-amber');
-            copyBtn.classList.add('btn-outline');
-        }, 2000);
     }).catch(err => {
         console.error('Failed to copy text: ', err);
     });
