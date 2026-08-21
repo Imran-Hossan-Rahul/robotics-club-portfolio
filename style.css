@@ -1228,6 +1228,10 @@ a:hover {
     font-size: 1.5rem !important;
   }
 
+  .workshop-heading {
+    font-size: 1.3rem !important;
+  }
+
   .expo-btn-container {
     gap: 5px !important;
   }
