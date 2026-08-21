@@ -472,8 +472,18 @@
             .hof-members { color: #94A3B8; font-family: 'Inter', sans-serif; font-size: 0.85rem; line-height: 1.5; }
             .hof-divider { border: none; border-top: 1px solid rgba(34, 211, 238, 0.08); margin: 14px 0; }
             @media (max-width: 900px) {
-                .hof-row { flex-direction: column; }
-                .hof-card, .hof-row-bottom .hof-card { flex: 1 1 100%; max-width: 100%; }
+                .hof-section { padding-left: 4px; padding-right: 4px; }
+                .hof-row { flex-direction: column; gap: 12px; margin-bottom: 12px; }
+                .hof-card, .hof-row-bottom .hof-card { 
+                    flex: 1 1 100%; max-width: 100%; padding: 16px 12px; 
+                    display: grid; grid-template-columns: 1fr 1fr; column-gap: 12px;
+                }
+                .hof-segment-name { grid-column: 1 / -1; margin-bottom: 12px; }
+                .hof-entry { margin-bottom: 0; word-break: break-word; }
+                .hof-team-name { font-size: 0.95rem; }
+                .hof-members { font-size: 0.75rem; }
+                .hof-rank { font-size: 0.65rem; }
+                .hof-divider { display: none; }
             }
         </style>
         <div class="hof-section">
