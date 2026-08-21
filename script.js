@@ -501,36 +501,28 @@ document.addEventListener('DOMContentLoaded', () => {
             prevMouse.y = mouse.y;
 
             // Deep Idle / Autonomous wandering
-            if (idleTimer > 300) { // 5 seconds of idle
-                if (window.innerWidth <= 768) {
-                    // Mobile: just cycle expressions occasionally, stay as Face
-                    isAutonomous = false; 
-                    if (idleTimer % 300 === 0) {
-                        activeState = Math.floor(Math.random() * 3); // Happy, Sad, Laugh
-                    }
+            if (idleTimer > 300 && window.innerWidth > 768) { // 5 seconds of idle (desktop only)
+                if (!isAutonomous) {
+                    isAutonomous = true;
+                    activeState = 5; // Start with Plane Shape
+                    autoShapeTimer = 0;
+                    autoShapeSwitchTime = 900 + Math.random() * 600; // Between 15 to 25 seconds
                 } else {
-                    if (!isAutonomous) {
-                        isAutonomous = true;
-                        activeState = 5; // Start with Plane Shape
+                    autoShapeTimer++;
+                    if (autoShapeTimer > autoShapeSwitchTime) { 
                         autoShapeTimer = 0;
-                        autoShapeSwitchTime = 900 + Math.random() * 600; // Between 15 to 25 seconds
-                    } else {
-                        autoShapeTimer++;
-                        if (autoShapeTimer > autoShapeSwitchTime) { 
-                            autoShapeTimer = 0;
-                            autoShapeSwitchTime = 900 + Math.random() * 600; // Vary the switch time
-                            transitionTimer = 180; // 3 seconds of slow, swarm-like reassembly
-                            
-                            activeState++;
-                            if (activeState > 7) activeState = 5;
-                            
-                            // Break and rebuild explosion!
-                            bots.forEach(bot => {
-                                bot.target = null;
-                                bot.vx += (Math.random() - 0.5) * 15;
-                                bot.vy += (Math.random() - 0.5) * 15;
-                            });
-                        }
+                        autoShapeSwitchTime = 900 + Math.random() * 600; // Vary the switch time
+                        transitionTimer = 180; // 3 seconds of slow, swarm-like reassembly
+                        
+                        activeState++;
+                        if (activeState > 7) activeState = 5;
+                        
+                        // Break and rebuild explosion!
+                        bots.forEach(bot => {
+                            bot.target = null;
+                            bot.vx += (Math.random() - 0.5) * 15;
+                            bot.vy += (Math.random() - 0.5) * 15;
+                        });
                     }
                 }
                 
@@ -597,9 +589,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Not idle, so it's a Face. Slide autoAnchor to top-left fixed position
                 let tx = 140; // Default X position
                 let ty = 160; // Default Y position
+                
                 if (window.innerWidth <= 768) {
                     tx = window.innerWidth / 2; // Exact center of screen width
                     ty = 30; // Vertically center in mobile navbar
+                    
+                    // On mobile, occasionally change expressions if idle
+                    if (idleTimer > 300 && idleTimer % 300 === 0) {
+                        activeState = Math.floor(Math.random() * 3); // Happy, Sad, Laugh
+                    }
                 }
                 autoAnchor.x += (tx - autoAnchor.x) * 0.05;
                 autoAnchor.y += (ty - autoAnchor.y) * 0.05;
