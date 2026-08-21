@@ -1185,9 +1185,9 @@ a:hover {
     padding: 0px;
   }
 
-  .details-section {
-    margin-left: -10px;
-    margin-right: -10px;
+  .container .details-section {
+    margin-left: -7px;
+    margin-right: -7px;
     padding: 1.5rem 10px !important;
   }
   
