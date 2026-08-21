@@ -1157,6 +1157,10 @@ a:hover {
     padding: 1rem 0.5rem;
   }
   
+  .benefit-card:last-child {
+    width: calc(75% - 5px);
+  }
+  
   .benefit-card h4 {
     font-size: 0.95rem;
     margin-bottom: 0.5rem;
