@@ -303,8 +303,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (mouse.isActive || isAutonomous) {
                     let anchor = autoAnchor; // ALWAYS use autoAnchor
                     
-                    let targetXOffset = this.targetOffsets[activeState].x;
-                    let targetYOffset = this.targetOffsets[activeState].y;
+                    let baseScale = window.innerWidth <= 768 ? 0.45 : 1;
+                    let targetXOffset = this.targetOffsets[activeState].x * baseScale;
+                    let targetYOffset = this.targetOffsets[activeState].y * baseScale;
                     
                     // Face follow mouse logic
                     if (activeState < 5) {
