@@ -1157,6 +1157,11 @@ a:hover {
     margin-bottom: 0;
   }
   
+  .sponsor-main-heading {
+    font-size: min(1.5rem, 6.2vw) !important;
+    white-space: nowrap;
+  }
+  
   .nav-links {
     display: none;
     position: absolute;
