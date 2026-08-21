@@ -21,13 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroLogo = document.getElementById('hero-logo');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            navbar.style.padding = '0.5rem 0';
-            navbar.style.background = 'rgba(10, 14, 20, 0.95)';
             navbar.classList.add('scrolled-logo');
             if (heroLogo) heroLogo.classList.add('hide-on-scroll');
         } else {
-            navbar.style.padding = '1rem 0';
-            navbar.style.background = 'rgba(10, 14, 20, 0.85)';
             navbar.classList.remove('scrolled-logo');
             if (heroLogo) heroLogo.classList.remove('hide-on-scroll');
         }

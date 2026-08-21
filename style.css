@@ -243,6 +243,11 @@ a:hover {
   transition: padding var(--transition-speed), background var(--transition-speed);
 }
 
+.navbar.scrolled-logo {
+  padding: 0.5rem 0;
+  background: rgba(10, 14, 20, 0.95);
+}
+
 .nav-container {
   display: flex;
   justify-content: space-between;
@@ -1149,7 +1154,11 @@ a:hover {
   }
 
   .navbar {
-    padding: 0.5rem 0;
+    padding: 0.1rem 0;
+  }
+
+  .navbar.scrolled-logo {
+    padding: 0.1rem 0;
   }
 
   .hero {
