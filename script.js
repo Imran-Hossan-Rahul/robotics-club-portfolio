@@ -310,7 +310,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (activeState < 5) {
                         let angleToMouse = Math.atan2(mouse.y - anchor.y, mouse.x - anchor.x);
                         let distToMouse = Math.hypot(mouse.x - anchor.x, mouse.y - anchor.y);
-                        let lookOffset = Math.min(distToMouse * 0.05, 12); // Shift up to 12px towards mouse
+                        let lookOffset = window.innerWidth <= 768 ? 0 : Math.min(distToMouse * 0.05, 12); // Shift up to 12px towards mouse (disabled on mobile)
                         targetXOffset += Math.cos(angleToMouse) * lookOffset;
                         targetYOffset += Math.sin(angleToMouse) * lookOffset;
                     }
@@ -356,17 +356,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                     
                     // Mood Dancing Offsets
+                    let moodDanceScale = window.innerWidth <= 768 ? 0.3 : 1; // Reduce dancing on mobile to stay in navbar
                     if (activeState === 0) { // Happy bob
-                        ty += Math.sin(time * 0.06) * 8;
+                        ty += Math.sin(time * 0.06) * 8 * moodDanceScale;
                     } else if (activeState === 1) { // Sad sway
-                        tx += Math.sin(time * 0.03) * 20;
-                        ty += Math.sin(time * 0.05) * 5;
+                        tx += Math.sin(time * 0.03) * 20 * moodDanceScale;
+                        ty += Math.sin(time * 0.05) * 5 * moodDanceScale;
                     } else if (activeState === 2) { // Laugh shake
-                        ty += Math.sin(time * 0.4) * 12;
-                        tx += Math.sin(time * 0.2) * 4;
+                        ty += Math.sin(time * 0.4) * 12 * moodDanceScale;
+                        tx += Math.sin(time * 0.2) * 4 * moodDanceScale;
                     } else if (activeState === 4) { // Angry jitter
-                        tx += (Math.random() - 0.5) * 6;
-                        ty += (Math.random() - 0.5) * 6;
+                        tx += (Math.random() - 0.5) * 6 * moodDanceScale;
+                        ty += (Math.random() - 0.5) * 6 * moodDanceScale;
                     } 
                     // activeState 5 (Plane) has no bobbing so it flies completely smoothly
 
@@ -598,7 +599,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 let ty = 160; // Default Y position
                 if (window.innerWidth <= 768) {
                     tx = window.innerWidth / 2; // Exact center of screen width
-                    ty = 40; // Vertically center in mobile navbar
+                    ty = 30; // Vertically center in mobile navbar
                 }
                 autoAnchor.x += (tx - autoAnchor.x) * 0.05;
                 autoAnchor.y += (ty - autoAnchor.y) * 0.05;
