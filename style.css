@@ -1077,11 +1077,28 @@ a:hover {
 }
 
 /* Responsive */
+@media (max-width: 1024px) {
+  .expo-highlight-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .expo-photo {
+    height: 300px;
+  }
+}
+
 @media (max-width: 768px) {
-  .expo-highlight-grid,
   .workshops-grid,
   .core-leaders {
     grid-template-columns: 1fr;
+  }
+  
+  .expo-highlight-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  
+  .expo-photo {
+    height: 200px;
   }
   
   .nav-links {
