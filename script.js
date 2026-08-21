@@ -809,12 +809,15 @@ window.revealEmail = function(btn) {
     btn.innerHTML = `<span style="text-transform: none; letter-spacing: normal;">${email}</span>`;
     
     // Create copy button outside
-    const copyBtn = document.createElement('button');
+    const copyBtn = document.createElement('a');
+    copyBtn.href = 'javascript:void(0)';
     copyBtn.className = 'btn btn-outline copy-email-btn';
-    copyBtn.style.padding = '0 15px';
+    // Match the vertical padding of btn-large for equal height
+    copyBtn.style.padding = '1rem 1.2rem'; 
     copyBtn.style.display = 'inline-flex';
     copyBtn.style.alignItems = 'center';
     copyBtn.style.justifyContent = 'center';
+    copyBtn.style.transition = 'all 0.3s ease';
     copyBtn.title = 'Copy to clipboard';
     copyBtn.innerHTML = `
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
@@ -830,7 +833,7 @@ window.revealEmail = function(btn) {
     if (window.getComputedStyle(btn.parentNode).display !== 'flex') {
         btn.parentNode.style.display = 'flex';
         btn.parentNode.style.gap = '10px';
-        btn.parentNode.style.alignItems = 'center';
+        btn.parentNode.style.alignItems = 'stretch';
         btn.parentNode.style.justifyContent = 'center';
     } else if (!btn.parentNode.style.gap) {
         btn.parentNode.style.gap = '15px';
@@ -848,12 +851,18 @@ window.copyEmail = function(e, email, copyBtn) {
     e.preventDefault();
     
     navigator.clipboard.writeText(email).then(() => {
-        const originalHTML = copyBtn.innerHTML;
-        copyBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
-        </svg> <span style="font-size: 0.9rem; margin-left: 6px; font-weight: 500;">Copied</span>`;
-        copyBtn.classList.remove('btn-outline');
-        copyBtn.classList.add('btn-amber');
+        // Fade out
+        copyBtn.style.opacity = '0';
+        
+        setTimeout(() => {
+            copyBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+            </svg> <span style="font-size: 0.9rem; margin-left: 6px; font-weight: 500;">Copied</span>`;
+            copyBtn.classList.remove('btn-outline');
+            copyBtn.classList.add('btn-amber');
+            // Fade back in
+            copyBtn.style.opacity = '1';
+        }, 300); // Wait for fade out to finish (0.3s transition)
         
     }).catch(err => {
         console.error('Failed to copy text: ', err);
