@@ -1112,12 +1112,6 @@ a:hover {
   }
 
   #nav-logo-left {
-    opacity: 0;
-    transform: translateX(-30px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-  }
-  
-  .navbar.scrolled-logo #nav-logo-left {
     opacity: 1;
     transform: translateX(0);
   }
