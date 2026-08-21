@@ -1179,10 +1179,12 @@ a:hover {
   }
   
   .hero-mission {
-    font-size: 1.05rem;
-    width: 100%;
-    max-width: 100%;
-    padding: 0 5px;
+    font-size: 0.95rem;
+    width: calc(100% + 20px);
+    max-width: none;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding: 0;
   }
   
   .hero-buttons {
