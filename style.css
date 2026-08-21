@@ -1098,6 +1098,10 @@ a:hover {
     display: flex;
   }
 
+  #circuit-canvas {
+    display: none;
+  }
+
   .nav-links a {
     margin: 1rem 0;
     font-size: 1.1rem;
