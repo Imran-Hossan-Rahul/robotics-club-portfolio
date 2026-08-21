@@ -1279,14 +1279,16 @@ a:hover {
   }
 
   .announcement-container {
-    margin-left: -10px;
-    margin-right: -10px;
-    width: calc(100% + 20px);
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
   .announcement-title {
-    font-size: 1.8rem !important;
-    padding: 10px 20px !important;
+    font-size: 1.4rem !important;
+    padding: 10px 15px !important;
     white-space: normal;
   }
 
