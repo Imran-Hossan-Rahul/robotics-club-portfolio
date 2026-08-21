@@ -18,13 +18,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Sticky Navbar Styling on Scroll
     const navbar = document.getElementById('navbar');
+    const heroLogo = document.getElementById('hero-logo');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             navbar.style.padding = '0.5rem 0';
             navbar.style.background = 'rgba(10, 14, 20, 0.95)';
+            navbar.classList.add('scrolled-logo');
+            if (heroLogo) heroLogo.classList.add('hide-on-scroll');
         } else {
             navbar.style.padding = '1rem 0';
             navbar.style.background = 'rgba(10, 14, 20, 0.85)';
+            navbar.classList.remove('scrolled-logo');
+            if (heroLogo) heroLogo.classList.remove('hide-on-scroll');
         }
     });
 
@@ -580,8 +585,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 
             } else {
                 // Not idle, so it's a Face. Slide autoAnchor to top-left fixed position
-                let tx = 140; // X position under navbar
-                let ty = 160; // Y position under navbar
+                let tx = 140; // Default X position
+                let ty = 160; // Default Y position
+                if (window.innerWidth <= 768) {
+                    tx = window.innerWidth / 2; // Exact center of screen width
+                    ty = 40; // Vertically center in mobile navbar
+                }
                 autoAnchor.x += (tx - autoAnchor.x) * 0.05;
                 autoAnchor.y += (ty - autoAnchor.y) * 0.05;
                 

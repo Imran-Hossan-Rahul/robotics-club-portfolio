@@ -24,7 +24,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
 
-    <link rel="stylesheet" href="style.css?v=35">
+    <link rel="stylesheet" href="style.css?v=36">
 
 </head>
 
@@ -46,7 +46,7 @@
     
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
+            <div class="nav-logo" id="nav-logo-left">
                 <span style="font-weight: bold; font-family: var(--font-heading); color: var(--text-primary); font-size: 1.2rem;">Robotics Club</span>
             </div>
             <div class="nav-links">
@@ -58,18 +58,21 @@
             <div class="nav-cta">
                 <a href="#partner" class="btn btn-amber">Partner With Us</a>
             </div>
-            <button class="mobile-menu-btn" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <div class="mobile-nav-controls">
+                <img src="photo/uap-logo.png" alt="UAP" class="mobile-uap-logo">
+                <button class="mobile-menu-btn" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
     </nav>
 
     <!-- 1. HERO -->
     <header class="hero section fade-in" id="hero">
         <div class="container text-center hero-content" style="position: relative; z-index: 10;">
-            <img src="photo/robotics-club-logo.png" alt="Robotics Club Logo" style="width: 150px; height: auto; margin-bottom: 20px;">
+            <img src="photo/robotics-club-logo.png" alt="Robotics Club Logo" id="hero-logo" style="width: 150px; height: auto; margin-bottom: 20px;">
             <h1 class="hero-title">Robotics Club</h1>
             <h2 class="hero-subtitle">University of Asia Pacific</h2>
             <p class="hero-mission">We are dedicated to fostering innovation in robotics, providing students with hands-on experience, and building competitive autonomous systems.</p>
@@ -955,7 +958,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
-    <script src="script.js?v=31"></script>
+    <script src="script.js?v=32"></script>
 
 </body>
 
