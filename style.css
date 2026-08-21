@@ -1134,6 +1134,25 @@ a:hover {
     height: 200px;
   }
   
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .benefit-card {
+    padding: 1rem 0.75rem;
+  }
+  
+  .benefit-card h4 {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .benefit-card p {
+    font-size: 0.8rem;
+    margin-bottom: 0;
+  }
+  
   .nav-links {
     display: none;
     position: absolute;
