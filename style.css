@@ -1201,6 +1201,7 @@ a:hover {
     align-items: center;
     justify-content: center;
     gap: 2px;
+    transform: translateY(2px);
   }
   
   .mobile-uap-logo {
