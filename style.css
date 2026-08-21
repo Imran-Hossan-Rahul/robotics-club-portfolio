@@ -1339,12 +1339,12 @@ a:hover {
   }
 
   .event-details-sidebar {
-    width: calc(100% - 6px);
-    padding: 1rem 5px;
-    margin-left: 3px;
-    margin-right: 3px;
+    width: calc(100% - 16px);
+    padding: 1rem 8px;
+    margin-left: 8px;
+    margin-right: 8px;
     margin-bottom: 12px;
-    border-radius: 8px; /* Added slight radius since it's no longer full width */
+    border-radius: 8px; 
   }
 
   /* Make ambient orbs visible on mobile by reducing blur and adjusting position */
