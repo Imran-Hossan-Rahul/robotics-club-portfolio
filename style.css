@@ -235,8 +235,9 @@ a:hover {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(10, 14, 20, 0.85);
-  backdrop-filter: blur(10px);
+  background: rgba(10, 14, 20, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   z-index: 1000;
   border-bottom: 1px solid var(--border-cyan);
   padding: 1rem 0;
@@ -245,7 +246,7 @@ a:hover {
 
 .navbar.scrolled-logo {
   padding: 0.5rem 0;
-  background: rgba(10, 14, 20, 0.95);
+  background: rgba(10, 14, 20, 0.65);
 }
 
 .nav-container {
