@@ -871,13 +871,13 @@ window.copyEmail = function(e, email, copyBtn) {
 
 // Teaser Countdown
 const countdownDate = new Date("Dec 14, 2026 00:00:00").getTime();
-const countdownInterval = setInterval(function() {
+
+function updateCountdown() {
     const now = new Date().getTime();
     const distance = countdownDate - now;
 
     if (distance < 0) {
-        clearInterval(countdownInterval);
-        return;
+        return false; // Stop updating
     }
 
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -892,4 +892,14 @@ const countdownInterval = setInterval(function() {
         document.getElementById("cd-minutes").innerText = String(minutes).padStart(2, '0');
         document.getElementById("cd-seconds").innerText = String(seconds).padStart(2, '0');
     }
-}, 1000);
+    return true; // Keep updating
+}
+
+// Call it immediately so it doesn't show "00" for the first second
+if (updateCountdown()) {
+    const countdownInterval = setInterval(function() {
+        if (!updateCountdown()) {
+            clearInterval(countdownInterval);
+        }
+    }, 1000);
+}

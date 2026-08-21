@@ -1211,8 +1211,10 @@ a:hover {
   }
   
   .sponsor-main-heading {
-    font-size: min(1.5rem, 6.2vw) !important;
-    white-space: nowrap;
+    font-size: clamp(1.2rem, 8vw, 2rem) !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
   }
   
   .nav-links {

@@ -23,8 +23,11 @@
     <!-- Swiper CSS -->
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+    
+    <!-- Fancybox CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"/>
 
-    <link rel="stylesheet" href="style.css?v=104">
+    <link rel="stylesheet" href="style.css?v=106">
 
 </head>
 
@@ -390,11 +393,11 @@
 
 
 
-            <!-- Card Wrapper to hold accent line outside overflow:hidden -->
+            <!-- Card Wrapper -->
             <div style="position: relative; margin-top: 180px; z-index: 5;">
-                <!-- Top accent line -->
-                <div style="position: absolute; top: -2px; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, #F59E0B 10%, #F59E0B 90%, transparent); z-index: 10; border-radius: 20px 20px 0 0;"></div>
-                
+                <!-- Top accent line (concentric curve math: -3px offset = 23px outer radius) -->
+                <div style="position: absolute; top: -3px; left: -3px; right: -3px; height: 40px; background: linear-gradient(90deg, transparent, #F59E0B 15%, #F59E0B 85%, transparent); border-radius: 23px 23px 0 0; z-index: -1;"></div>
+
                 <div style="
                     background: linear-gradient(135deg, rgba(15,20,35,0.98) 0%, rgba(8,12,22,1) 100%);
                     border: 1px solid rgba(34,211,238,0.3);
@@ -406,6 +409,7 @@
                     flex-wrap: wrap;
                     position: relative;
                 ">
+
 
                 <!-- Left: poster image panel -->
                 <div style="
@@ -424,7 +428,7 @@
                 </div>
 
                 <!-- Right: content -->
-                <div style="flex: 1 1 300px; padding: clamp(20px, 5vw, 36px) clamp(15px, 5vw, 40px); display: flex; flex-direction: column; gap: 16px; justify-content: center; position: relative;">
+                <div style="flex: 1 1 250px; min-width: 0; padding: clamp(20px, 5vw, 36px) clamp(15px, 5vw, 40px); display: flex; flex-direction: column; gap: 16px; justify-content: center; position: relative;">
                     <!-- Title -->
                     <h3 style="
                         font-family: 'Space Grotesk', sans-serif;
@@ -433,13 +437,15 @@
                         color: #E8EDF5;
                         margin: 0;
                         line-height: 1.2;
+                        word-break: break-word;
+                        overflow-wrap: break-word;
                     ">IRO Bangladesh Open 2026 is coming to UAP!</h3>
 
                     <!-- Description paragraphs -->
-                    <p style="font-family: 'Inter', sans-serif; font-size: 0.95rem; color: #94A3B8; margin: 0; line-height: 1.75;">
+                    <p style="font-family: 'Inter', sans-serif; font-size: 0.95rem; color: #94A3B8; margin: 0; line-height: 1.75; word-break: break-word; overflow-wrap: break-word;">
                         The <strong style="color: #E8EDF5;">University of Asia Pacific (UAP) Robotics Club</strong> is proud to serve as the <strong style="color: #22D3EE;">Co-Host</strong> of IRO Bangladesh Open 2026, organized by <strong style="color: #E8EDF5;">Bangladesh Robot Olympiad (BDRO)</strong>.
                     </p>
-                    <p style="font-family: 'Inter', sans-serif; font-size: 0.95rem; color: #94A3B8; margin: 0; line-height: 1.75;">
+                    <p style="font-family: 'Inter', sans-serif; font-size: 0.95rem; color: #94A3B8; margin: 0; line-height: 1.75; word-break: break-word; overflow-wrap: break-word;">
                         Join us for two exciting days of innovation and creativity!
                     </p>
 
@@ -460,11 +466,11 @@
                     </div>
 
                     <!-- CTAs -->
-                    <div class="expo-btn-container" style="display: flex; flex-wrap: nowrap; gap: 10px; margin-top: 20px;">
-                        <a href="https://www.bdro.org" target="_blank" rel="noopener noreferrer" class="btn btn-amber expo-btn">
+                    <div class="expo-btn-container" style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px;">
+                        <a href="https://www.bdro.org" target="_blank" rel="noopener noreferrer" class="btn btn-amber expo-btn" style="flex: 1 1 140px; min-width: 0; text-align: center; justify-content: center; padding: 12px 15px; font-size: clamp(0.85rem, 4vw, 1rem);">
                             Register &rarr; bdro.org
                         </a>
-                        <a href="https://www.facebook.com/photo.php?fbid=1475872681228466&set=a.554159330066477" target="_blank" rel="noopener noreferrer" class="btn btn-outline expo-btn" style="border: 1px solid rgba(34,211,238,0.35);">
+                        <a href="https://www.facebook.com/photo.php?fbid=1475872681228466&set=a.554159330066477" target="_blank" rel="noopener noreferrer" class="btn btn-outline expo-btn" style="flex: 1 1 120px; min-width: 0; border: 1px solid rgba(34,211,238,0.35); text-align: center; justify-content: center; padding: 12px 15px; font-size: clamp(0.85rem, 4vw, 1rem);">
                              View Post
                         </a>
                     </div>
@@ -486,15 +492,15 @@
     <section class="events section mt-5 pt-5" id="events">
 
         <div class="container text-center mb-5 pb-4">
-            <div class="events-banner" style="position: relative; padding: 4rem 2rem; overflow: hidden; border-radius: 30px; pointer-events: none;">
+            <div class="events-banner" style="position: relative; padding: clamp(2rem, 5vw, 4rem) clamp(0.5rem, 3vw, 2rem); overflow: hidden; border-radius: 30px; pointer-events: none;">
                 <!-- Decorative glowing elements -->
                 <div style="position: absolute; top: -100%; left: -25%; width: 100%; height: 300%; background: radial-gradient(circle, rgba(34,211,238,0.1) 0%, rgba(34,211,238,0) 60%); transform: rotate(30deg); pointer-events: none;"></div>
                 <div style="position: absolute; bottom: -100%; right: -25%; width: 100%; height: 300%; background: radial-gradient(circle, rgba(245,158,11,0.05) 0%, rgba(245,158,11,0) 60%); transform: rotate(-30deg); pointer-events: none;"></div>
                 
-                <h2 class="fw-bold mb-3" style="font-size: clamp(2rem, 8vw, 4rem); color: var(--text-primary); text-transform: uppercase; letter-spacing: 4px; text-shadow: 0 0 20px rgba(34, 211, 238, 0.4); word-wrap: break-word;">
+                <h2 class="fw-bold mb-3" style="font-size: clamp(1.5rem, 10vw, 4rem); color: var(--text-primary); text-transform: uppercase; letter-spacing: clamp(1px, 1vw, 4px); text-shadow: 0 0 20px rgba(34, 211, 238, 0.4);">
                     Flagship <br class="d-md-none"><span style="color: var(--accent-cyan);">Events</span>
                 </h2>
-                <div style="width: 100px; height: 4px; background: var(--accent-cyan); margin: 0 auto; border-radius: 2px; box-shadow: 0 0 15px var(--accent-cyan);"></div>
+                <div style="width: clamp(60px, 15vw, 100px); height: 4px; background: var(--accent-cyan); margin: 0 auto; border-radius: 2px; box-shadow: 0 0 15px var(--accent-cyan);"></div>
             </div>
         </div>
 
@@ -822,22 +828,22 @@
             <h2 class="teaser-title">Something is being built.</h2>
 
 
-            <div class="countdown-wrapper mt-4 mb-5" id="countdown">
-                <div class="countdown-box">
-                    <span class="countdown-num" id="cd-days">00</span>
-                    <span class="countdown-label">Days</span>
+            <div class="countdown-wrapper mt-4 mb-5" id="countdown" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1.5rem; justify-content: center; max-width: 800px; margin: 0 auto;">
+                <div class="countdown-box" style="text-align: center;">
+                    <span class="countdown-num" id="cd-days" style="display: block; font-variant-numeric: tabular-nums; font-family: var(--font-heading); font-size: 3.5rem; font-weight: bold; color: var(--accent-cyan); line-height: 1;">00</span>
+                    <span class="countdown-label" style="display: block; font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 2px; margin-top: 5px;">Days</span>
                 </div>
-                <div class="countdown-box">
-                    <span class="countdown-num" id="cd-hours">00</span>
-                    <span class="countdown-label">Hours</span>
+                <div class="countdown-box" style="text-align: center;">
+                    <span class="countdown-num" id="cd-hours" style="display: block; font-variant-numeric: tabular-nums; font-family: var(--font-heading); font-size: 3.5rem; font-weight: bold; color: var(--accent-cyan); line-height: 1;">00</span>
+                    <span class="countdown-label" style="display: block; font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 2px; margin-top: 5px;">Hours</span>
                 </div>
-                <div class="countdown-box">
-                    <span class="countdown-num" id="cd-minutes">00</span>
-                    <span class="countdown-label">Minutes</span>
+                <div class="countdown-box" style="text-align: center;">
+                    <span class="countdown-num" id="cd-minutes" style="display: block; font-variant-numeric: tabular-nums; font-family: var(--font-heading); font-size: 3.5rem; font-weight: bold; color: var(--accent-cyan); line-height: 1;">00</span>
+                    <span class="countdown-label" style="display: block; font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 2px; margin-top: 5px;">Minutes</span>
                 </div>
-                <div class="countdown-box">
-                    <span class="countdown-num" id="cd-seconds">00</span>
-                    <span class="countdown-label">Seconds</span>
+                <div class="countdown-box" style="text-align: center;">
+                    <span class="countdown-num" id="cd-seconds" style="display: block; font-variant-numeric: tabular-nums; font-family: var(--font-heading); font-size: 3.5rem; font-weight: bold; color: var(--accent-cyan); line-height: 1;">00</span>
+                    <span class="countdown-label" style="display: block; font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 2px; margin-top: 5px;">Seconds</span>
                 </div>
             </div>
             <div class="mt-4">
@@ -853,14 +859,10 @@
     <!-- 7. PARTNER WITH US -->
 
     <section class="partner section fade-in" id="partner">
-
         <div class="container">
-
             <div class="section-header text-center mb-4">
-
-                <h2 class="sponsor-main-heading">Power the Next Robo Expo</h2>
-
-                <p>Join us in shaping the next generation of engineering leaders.</p>
+                <h2 class="sponsor-main-heading text-wrap text-break" style="white-space: normal !important; word-wrap: break-word !important; overflow-wrap: break-word !important;">Power the Next Robo Expo</h2>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">Join us in shaping the next generation of engineering leaders.</p>
 
             </div>
 
@@ -1016,8 +1018,122 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 
-    <script src="script.js?v=45"></script>
+    <style>
+        /* Ensure Fancybox is always on top and mathematically locked to the screen viewport */
+        .fancybox__container {
+            z-index: 99999 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            max-width: 100% !important;
+        }
+        /* Make the image look like a premium card */
+        .f-image, .fancybox__image {
+            border-radius: 20px !important;
+            border: 1px solid rgba(34,211,238,0.3) !important;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.8), 0 0 20px rgba(34,211,238,0.1) !important;
+        }
+        /* Move Fancybox Toolbar to the bottom middle like a floating pill */
+        .f-toolbar, .fancybox__toolbar {
+            position: absolute !important;
+            top: auto !important;
+            bottom: 40px !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            width: auto !important;
+            min-width: max-content !important; /* Forces the bg width to expand instead of wrapping */
+            background: rgba(11, 15, 25, 0.85) !important;
+            border-radius: 50px !important;
+            padding: 6px 12px !important;
+            backdrop-filter: blur(12px) !important;
+            -webkit-backdrop-filter: blur(12px) !important;
+            border: 1px solid rgba(34,211,238,0.3) !important;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8), 0 0 20px rgba(34,211,238,0.15) !important;
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: nowrap !important;
+            white-space: nowrap !important;
+            justify-content: center !important;
+            align-items: center !important;
+            z-index: 999999 !important;
+        }
+        /* Force the inner middle container to also stay horizontal on ultra-small screens */
+        .f-toolbar__middle, .fancybox__toolbar__middle {
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: nowrap !important;
+            white-space: nowrap !important;
+            justify-content: center !important;
+            align-items: center !important;
+            width: auto !important;
+            min-width: max-content !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        /* Hide left and right toolbar sections, we only use the middle pill */
+        .f-toolbar__left, .f-toolbar__right, .fancybox__toolbar__left, .fancybox__toolbar__right {
+            display: none !important;
+        }
+        
+        /* Style ALL buttons inside the toolbars for a premium look */
+        .f-button, .fancybox__button {
+            background: rgba(255,255,255,0.05) !important;
+            border-radius: 50% !important;
+            color: #E8EDF5 !important;
+            width: 40px !important;
+            height: 40px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            transition: all 0.3s ease !important;
+            margin: 0 6px !important;
+            cursor: pointer !important;
+            flex-shrink: 0 !important;
+        }
+        .f-button:hover:not([disabled]), .fancybox__button:hover:not([disabled]) {
+            background: rgba(34,211,238,0.15) !important;
+            color: #22D3EE !important;
+            transform: scale(1.1) !important;
+            box-shadow: 0 0 15px rgba(34,211,238,0.3) !important;
+        }
+        .f-button[disabled], .fancybox__button[disabled] {
+            opacity: 0.3 !important;
+            cursor: not-allowed !important;
+        }
+
+        /* Professional hover cursor for clickable images (magnifying glass) */
+        img:not([src*='logo']):not([alt*='Logo']):not([alt*='UAP']) {
+            cursor: zoom-in !important;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            Fancybox.bind("img:not([src*='logo']):not([alt*='Logo']):not([alt*='UAP'])", {
+                groupAll: false, // Disables gallery mode: only loads the single clicked image (no prev/next arrows, no background loading)
+                hideScrollbar: true, // true disables background scrolling
+                showClass: "f-fadeIn", // Smooth fade-in (fixes instant/jarring load and bypasses buggy zoom math)
+                hideClass: "f-fadeOut", // Smooth fade-out (ensures image, background, and toolbar close together)
+                Thumbs: false, // Disables thumbnails completely for a lighter UI
+                compact: false, // Disables internal breakpoints that might glitch on <300px screens
+                closeButton: false, // Disables the default buggy close button that scales with the image
+                idle: false, // Prevents Fancybox from hiding UI elements when inactive
+                Images: {
+                    initialSize: "fit", // Force it to always fit the screen initially
+                },
+                Toolbar: {
+                    autoHide: false, // Explicitly prevent the toolbar from disappearing
+                    display: {
+                        left: [],
+                        middle: ["zoomIn", "zoomOut", "close"], // Only one close button at the bottom pill
+                        right: [],
+                    },
+                }
+            });
+        });
+    </script>
+
+    <script src="script.js?v=46"></script>
 
 </body>
 
