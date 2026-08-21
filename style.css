@@ -1344,4 +1344,10 @@ a:hover {
     width: 60vw;
     height: 60vw;
   }
+
+  /* Fix for full-width-container to prevent excessive gaps */
+  .full-width-container {
+    width: 100%;
+    padding: 0;
+  }
 }
