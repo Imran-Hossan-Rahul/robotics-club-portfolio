@@ -46,10 +46,12 @@
     
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <div class="nav-logo" id="nav-logo-left" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; transform: translateY(2px);">
-            <img src="photo/robotics-club-logo.png" alt="Robotics Club" id="nav-animated-logo" style="width: 35px; height: auto; opacity: 0; transform: translateY(-10px); transition: all 0.4s ease;">
-            <span style="font-weight: bold; font-family: var(--font-heading); color: var(--text-primary); font-size: 0.8rem; line-height: 1;">Robotics Club</span>
-        </div>
+            <div class="nav-logo" id="nav-logo-left" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0; transform: translateY(2px);">
+                <div id="nav-animated-logo-wrapper" style="max-height: 0; opacity: 0; overflow: hidden; transition: all 0.4s ease; display: flex; justify-content: center; flex-direction: column;">
+                    <img src="photo/robotics-club-logo.png" alt="Robotics Club" style="width: 35px; height: auto; margin-bottom: 2px;">
+                </div>
+                <span style="font-weight: bold; font-family: var(--font-heading); color: var(--text-primary); font-size: 0.8rem; line-height: 1;">Robotics Club</span>
+            </div>
             <div class="nav-links">
                 <a href="#about">About</a>
                 <a href="#committee">Committee</a>
@@ -927,7 +929,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
-    <script src="script.js?v=40"></script>
+    <script src="script.js?v=41"></script>
 
 </body>
 
