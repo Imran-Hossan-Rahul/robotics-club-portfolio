@@ -532,7 +532,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         }
                     }
                 }
-            }
                 
                 if (transitionTimer > 0) {
                     transitionTimer--;
