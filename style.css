@@ -57,43 +57,48 @@ body {
 .orb {
     position: absolute;
     border-radius: 50%;
-    filter: blur(90px);
-    opacity: 0.5;
-    animation: floatOrb 20s infinite ease-in-out alternate;
+    filter: blur(70px);
+    opacity: 0.9;
 }
 
 .orb-1 {
     width: 45vw;
     height: 45vw;
-    background: rgba(34, 211, 238, 0.12); /* Cyan */
+    background: rgba(34, 211, 238, 0.25); /* Cyan */
     top: -15%;
     left: -15%;
-    animation-delay: 0s;
+    animation: floatOrb1 20s infinite ease-in-out alternate;
 }
 
 .orb-2 {
     width: 40vw;
     height: 40vw;
-    background: rgba(245, 158, 11, 0.08); /* Amber */
+    background: rgba(245, 158, 11, 0.2); /* Amber */
     bottom: -10%;
     right: -10%;
-    animation-delay: -5s;
-    animation-duration: 25s;
+    animation: floatOrb2 25s infinite ease-in-out alternate;
 }
 
 .orb-3 {
     width: 35vw;
     height: 35vw;
-    background: rgba(34, 211, 238, 0.08); /* Cyan */
+    background: rgba(34, 211, 238, 0.2); /* Cyan */
     top: 30%;
     left: 30%;
-    animation-delay: -10s;
-    animation-duration: 30s;
+    animation: floatOrb3 30s infinite ease-in-out alternate;
 }
 
-@keyframes floatOrb {
+@keyframes floatOrb1 {
     0% { transform: translate(0, 0) scale(1); }
-    100% { transform: translate(50px, -50px) scale(1.1); }
+    100% { transform: translate(15vw, 10vh) scale(1.1); }
+}
+@keyframes floatOrb2 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(-15vw, -15vh) scale(1.2); }
+}
+@keyframes floatOrb3 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(10vw, -20vh) scale(0.9); }
 }
 /* Background Texture */
 .background-texture {
