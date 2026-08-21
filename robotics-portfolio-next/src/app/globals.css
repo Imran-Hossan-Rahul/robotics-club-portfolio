@@ -248,13 +248,10 @@ a:hover {
   position: fixed;
   top: 0;
   width: 100%;
-  background: red; /* Changed to red as requested */
+  background: rgba(10, 14, 20, 0.4);
   backdrop-filter: blur(12px) saturate(120%);
   -webkit-backdrop-filter: blur(12px) saturate(120%);
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  will-change: backdrop-filter, transform;
+  transform: translateZ(0);
   z-index: 1000;
   border-bottom: 1px solid var(--border-cyan);
   padding: 1rem 0;
@@ -263,7 +260,9 @@ a:hover {
 
 .navbar.scrolled-logo {
   padding: 0.5rem 0;
-  background: rgba(10, 14, 20, 0.65);
+  background: rgba(10, 14, 20, 0.7);
+  backdrop-filter: blur(16px) saturate(120%);
+  -webkit-backdrop-filter: blur(16px) saturate(120%);
 }
 
 .nav-container {
