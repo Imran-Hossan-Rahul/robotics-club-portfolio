@@ -1117,6 +1117,16 @@ a:hover {
 @media (max-width: 768px) {
   .core-leaders {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .leader-card.prominent {
+    padding: 2rem 1rem;
+  }
+
+  .prominent .leader-photo, .prominent .placeholder-photo {
+    width: 200px;
+    height: 200px;
   }
 
   .workshops-grid {
