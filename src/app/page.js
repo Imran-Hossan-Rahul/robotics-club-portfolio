@@ -37,7 +37,7 @@ export default function Home() {
           autoHide: false,
           display: {
             left: [],
-            middle: ['zoomIn', 'zoomOut', 'close'],
+            middle: ["zoom", "fullscreen", "close"],
             right: [],
           },
         },
