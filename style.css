@@ -648,6 +648,7 @@ a:hover {
   .event-pin-container {
     flex-direction: column;
     height: auto; /* Allow height to grow */
+    gap: 12px;
   }
 
   .event-details-sidebar {
@@ -655,8 +656,8 @@ a:hover {
     padding: 2rem 5vw;
     border-right: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    margin-bottom: 12px !important;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35); /* Reduced shadow so it doesn't push visually */
+    margin-bottom: 0 !important;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
   }
 
   .event-gallery-window {
