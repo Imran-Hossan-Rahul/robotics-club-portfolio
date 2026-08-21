@@ -249,8 +249,12 @@ a:hover {
   top: 0;
   width: 100%;
   background: rgba(10, 14, 20, 0.4);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px) saturate(120%);
+  -webkit-backdrop-filter: blur(12px) saturate(120%);
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: backdrop-filter, transform;
   z-index: 1000;
   border-bottom: 1px solid var(--border-cyan);
   padding: 1rem 0;
@@ -618,9 +622,13 @@ a:hover {
   position: relative;
   border-right: 1px solid rgba(34, 211, 238, 0.15); /* Subtle cyan border */
   border-radius: 0;
-  background: rgba(10, 14, 20, 0.65); /* Dark transparent bg for glass */
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(10, 14, 20, 0.55); /* Dark transparent bg for glass */
+  backdrop-filter: blur(16px) saturate(120%);
+  -webkit-backdrop-filter: blur(16px) saturate(120%);
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: backdrop-filter, transform;
   box-shadow: 20px 0 40px rgba(0, 0, 0, 0.5); /* Shadow falling over the images */
 }
 
