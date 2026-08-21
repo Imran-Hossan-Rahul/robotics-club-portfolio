@@ -236,7 +236,7 @@ export default function Events() {
         </div>
         <div className="event-pin-container mb-5">
           <div className={`event-details-sidebar ${styles.eventDetailsSidebar}`}>
-            <p className="event-desc mb-4">The story of how the very first Expo was organized and its initial success. This laid the foundation for our robotics community and sparked a culture of innovation.</p>
+            <p className="event-desc mb-4">Robo Expo 1.0 was a prominent robotics exhibition and quiz competition successfully organized by the Robotics Club of the CSE Department at the University of Asia Pacific. The event provided a dynamic platform for young, enthusiastic students to showcase their innovative engineering projects and technological solutions. Alongside the diverse project displays, the highly engaging &quot;Robo Quiz&quot; segment sparked critical thinking and fueled a deep passion for future tech among the participants.</p>
             <div className="segments-section mb-4">
               <h4>Key Segments</h4>
               <div className="segment-chips">
