@@ -1138,13 +1138,14 @@ a:hover {
   .benefits-grid {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
   }
   
   .benefit-card {
-    width: calc(50% - 5px);
-    padding: 1rem 0.75rem;
+    width: calc(50% - 4px);
+    padding: 1rem 0.5rem;
   }
   
   .benefit-card h4 {
