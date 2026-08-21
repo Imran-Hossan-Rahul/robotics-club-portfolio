@@ -464,6 +464,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function draw() {
+            if (window.innerWidth < 768) {
+                ctx.clearRect(0, 0, width, height);
+                setTimeout(() => requestAnimationFrame(draw), 1000); // Only loop once a second, skip math
+                return;
+            }
             ctx.clearRect(0, 0, width, height);
             time++;
 
