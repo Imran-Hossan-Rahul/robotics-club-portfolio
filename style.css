@@ -1076,6 +1076,25 @@ a:hover {
   transform: translateY(0);
 }
 
+.announcement-glow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1600px;
+  height: 650px;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.announcement-glow-inner {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at top center, rgba(245,158,11,0.85) 0%, rgba(245,158,11,0) 70%);
+  -webkit-mask-image: conic-gradient(from 110deg at 50% 0%, transparent 0deg, black 70deg, transparent 140deg);
+  mask-image: conic-gradient(from 110deg at 50% 0%, transparent 0deg, black 70deg, transparent 140deg);
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
   .expo-highlight-grid {
@@ -1193,6 +1212,16 @@ a:hover {
     font-size: 1.8rem !important;
     padding: 10px 20px !important;
     white-space: normal;
+  }
+
+  .announcement-glow {
+    width: 800px;
+    height: 350px;
+    filter: blur(50px);
+  }
+  
+  .announcement-glow-inner {
+    background: radial-gradient(ellipse at top center, rgba(245,158,11,0.85) 0%, rgba(245,158,11,0) 60%);
   }
 
   .mobile-menu-btn {
