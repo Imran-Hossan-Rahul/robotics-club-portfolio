@@ -1311,6 +1311,7 @@ a:hover {
   }
 
   .event-details-sidebar {
+    width: calc(100% - 6px);
     padding: 1rem 5px;
     margin-left: 3px;
     margin-right: 3px;
