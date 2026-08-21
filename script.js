@@ -806,16 +806,41 @@ window.revealEmail = function(btn) {
     if (btn.classList.contains('email-revealed')) return;
     
     const email = 'roboticsclub@uap-bd.edu';
-    btn.innerHTML = `<span style="text-transform: none; letter-spacing: normal;">${email}</span> 
-    <span class="copy-email-btn" onclick="copyEmail(event, '${email}', this)" style="margin-left: 10px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.2); border-radius: 4px; padding: 4px; transition: all 0.2s;" title="Copy to clipboard">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+    btn.innerHTML = `<span style="text-transform: none; letter-spacing: normal;">${email}</span>`;
+    
+    // Create copy button outside
+    const copyBtn = document.createElement('button');
+    copyBtn.className = 'btn btn-outline copy-email-btn';
+    copyBtn.style.padding = '0 15px';
+    copyBtn.style.display = 'inline-flex';
+    copyBtn.style.alignItems = 'center';
+    copyBtn.style.justifyContent = 'center';
+    copyBtn.title = 'Copy to clipboard';
+    copyBtn.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
           <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
           <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
-        </svg>
-    </span>`;
+        </svg>`;
+        
+    copyBtn.onclick = function(e) {
+        window.copyEmail(e, email, this);
+    };
+    
+    // Ensure parent aligns them
+    if (window.getComputedStyle(btn.parentNode).display !== 'flex') {
+        btn.parentNode.style.display = 'flex';
+        btn.parentNode.style.gap = '10px';
+        btn.parentNode.style.alignItems = 'center';
+        btn.parentNode.style.justifyContent = 'center';
+    } else if (!btn.parentNode.style.gap) {
+        btn.parentNode.style.gap = '15px';
+    }
+    
+    btn.parentNode.insertBefore(copyBtn, btn.nextSibling);
     
     btn.classList.add('email-revealed');
-    btn.style.cursor = 'default';
+    btn.style.cursor = 'text';
+    btn.onclick = null;
 };
 
 window.copyEmail = function(e, email, copyBtn) {
@@ -824,17 +849,19 @@ window.copyEmail = function(e, email, copyBtn) {
     
     navigator.clipboard.writeText(email).then(() => {
         const originalHTML = copyBtn.innerHTML;
-        copyBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        copyBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
           <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
-        </svg> <span style="font-size: 0.8rem; margin-left: 4px; font-weight: 500;">Copied!</span>`;
-        copyBtn.style.background = 'rgba(34, 211, 238, 0.3)';
+        </svg> <span style="font-size: 0.9rem; margin-left: 6px; font-weight: 500;">Copied</span>`;
+        copyBtn.classList.remove('btn-outline');
+        copyBtn.classList.add('btn-amber');
         
         setTimeout(() => {
             copyBtn.innerHTML = originalHTML;
-            copyBtn.style.background = 'rgba(255,255,255,0.2)';
+            copyBtn.classList.remove('btn-amber');
+            copyBtn.classList.add('btn-outline');
         }, 2000);
     }).catch(err => {
-        console.error('Failed to copy: ', err);
+        console.error('Failed to copy text: ', err);
     });
 };
 
