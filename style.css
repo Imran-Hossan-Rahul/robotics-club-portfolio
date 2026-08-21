@@ -1148,9 +1148,13 @@ a:hover {
     transform: translateY(-30px);
   }
 
+  .navbar {
+    padding: 0.5rem 0;
+  }
+
   .hero {
     min-height: 65vh;
-    padding-top: 8rem;
+    padding-top: 9rem;
   }
 
   .hero-content img {
