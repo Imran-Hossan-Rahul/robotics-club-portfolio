@@ -1421,3 +1421,12 @@ a:hover {
     padding: 0;
   }
 }
+@media (max-width: 420px) {
+  .benefit-card {
+    width: 100% !important;
+    padding: 1.5rem !important;
+  }
+  .benefit-card:last-child {
+    width: 100% !important;
+  }
+}
