@@ -501,28 +501,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Deep Idle / Autonomous wandering
             if (idleTimer > 300) { // 5 seconds of idle
-                if (!isAutonomous) {
-                    isAutonomous = true;
-                    activeState = 5; // Start with Plane Shape
-                    autoShapeTimer = 0;
-                    autoShapeSwitchTime = 900 + Math.random() * 600; // Between 15 to 25 seconds
+                if (window.innerWidth <= 768) {
+                    // Mobile: just cycle expressions occasionally, stay as Face
+                    isAutonomous = false; 
+                    if (idleTimer % 300 === 0) {
+                        activeState = Math.floor(Math.random() * 3); // Happy, Sad, Laugh
+                    }
                 } else {
-                    autoShapeTimer++;
-                    if (autoShapeTimer > autoShapeSwitchTime) { 
+                    if (!isAutonomous) {
+                        isAutonomous = true;
+                        activeState = 5; // Start with Plane Shape
                         autoShapeTimer = 0;
-                        autoShapeSwitchTime = 900 + Math.random() * 600; // Vary the switch time
-                        transitionTimer = 180; // 3 seconds of slow, swarm-like reassembly
-                        
-                        activeState++;
-                        if (activeState > 7) activeState = 5;
-                        
-                        // Break and rebuild explosion!
-                        bots.forEach(bot => {
-                            bot.vx += (Math.random() - 0.5) * 60;
-                            bot.vy += (Math.random() - 0.5) * 60;
-                        });
+                        autoShapeSwitchTime = 900 + Math.random() * 600; // Between 15 to 25 seconds
+                    } else {
+                        autoShapeTimer++;
+                        if (autoShapeTimer > autoShapeSwitchTime) { 
+                            autoShapeTimer = 0;
+                            autoShapeSwitchTime = 900 + Math.random() * 600; // Vary the switch time
+                            transitionTimer = 180; // 3 seconds of slow, swarm-like reassembly
+                            
+                            activeState++;
+                            if (activeState > 7) activeState = 5;
+                            
+                            // Break and rebuild explosion!
+                            bots.forEach(bot => {
+                                bot.target = null;
+                                bot.vx += (Math.random() - 0.5) * 15;
+                                bot.vy += (Math.random() - 0.5) * 15;
+                            });
+                        }
                     }
                 }
+            }
                 
                 if (transitionTimer > 0) {
                     transitionTimer--;
