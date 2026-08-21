@@ -1107,9 +1107,13 @@ a:hover {
 }
 
 @media (max-width: 768px) {
-  .workshops-grid,
   .core-leaders {
     grid-template-columns: 1fr;
+  }
+
+  .workshops-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
   
   .expo-highlight-grid {
