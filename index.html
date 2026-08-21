@@ -46,10 +46,10 @@
     
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <div class="nav-logo" id="nav-logo-left" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;">
-                <img src="photo/robotics-club-logo.png" alt="Robotics Club" style="width: 35px; height: auto;">
-                <span style="font-weight: bold; font-family: var(--font-heading); color: var(--text-primary); font-size: 0.8rem; line-height: 1;">Robotics Club</span>
-            </div>
+            <div class="nav-logo" id="nav-logo-left" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; transform: translateY(2px);">
+            <img src="photo/robotics-club-logo.png" alt="Robotics Club" id="nav-animated-logo" style="width: 35px; height: auto; opacity: 0; transform: translateY(-10px); transition: all 0.4s ease;">
+            <span style="font-weight: bold; font-family: var(--font-heading); color: var(--text-primary); font-size: 0.8rem; line-height: 1;">Robotics Club</span>
+        </div>
             <div class="nav-links">
                 <a href="#about">About</a>
                 <a href="#committee">Committee</a>
@@ -71,6 +71,7 @@
     <!-- 1. HERO -->
     <header class="hero section fade-in" id="hero">
         <div class="container text-center hero-content" style="position: relative; z-index: 10;">
+            <img src="photo/robotics-club-logo.png" alt="Robotics Club Logo" id="hero-main-logo" style="width: 130px; height: auto; margin-bottom: 25px;">
             <h1 class="hero-title">Robotics Club</h1>
             <h2 class="hero-subtitle">University of Asia Pacific</h2>
             <p class="hero-mission">We are dedicated to fostering innovation in robotics, providing students with hands-on experience, and building competitive autonomous systems.</p>
@@ -927,7 +928,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
-    <script src="script.js?v=39"></script>
+    <script src="script.js?v=40"></script>
 
 </body>
 

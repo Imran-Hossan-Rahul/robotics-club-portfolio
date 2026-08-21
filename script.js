@@ -18,14 +18,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Sticky Navbar Styling on Scroll
     const navbar = document.getElementById('navbar');
-    const heroLogo = document.getElementById('hero-logo');
+    const heroMainLogo = document.getElementById('hero-main-logo');
+    const navAnimatedLogo = document.getElementById('nav-animated-logo');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled-logo');
-            if (heroLogo) heroLogo.classList.add('hide-on-scroll');
         } else {
             navbar.classList.remove('scrolled-logo');
-            if (heroLogo) heroLogo.classList.remove('hide-on-scroll');
+        }
+        
+        // Handle logo animation based on hero logo visibility
+        if (heroMainLogo && navAnimatedLogo) {
+            const heroLogoRect = heroMainLogo.getBoundingClientRect();
+            // If the hero logo goes above the screen or is close to it
+            if (heroLogoRect.bottom < 60) {
+                navAnimatedLogo.style.opacity = '1';
+                navAnimatedLogo.style.transform = 'translateY(0)';
+            } else {
+                navAnimatedLogo.style.opacity = '0';
+                navAnimatedLogo.style.transform = 'translateY(-10px)';
+            }
         }
     });
 
