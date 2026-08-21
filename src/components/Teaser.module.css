@@ -1,0 +1,32 @@
+.countdownWrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1.5rem;
+  justify-content: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.countdownBox {
+  text-align: center;
+}
+
+.countdownNum {
+  display: block;
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: var(--accent-cyan);
+  line-height: 1;
+}
+
+.countdownLabel {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 5px;
+}
