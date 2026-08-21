@@ -1137,8 +1137,9 @@ a:hover {
     height: 200px;
   }
   
-  .why-sponsor > .container {
+  .sponsorship .container {
     max-width: 100% !important;
+    width: 100% !important;
     padding-left: 15px !important;
     padding-right: 15px !important;
   }
