@@ -22,7 +22,20 @@ export default function Footer() {
         <p className="footer-location text-secondary mb-4" style={{ fontSize: '0.9rem' }}>
           7th floor, 74/A, Green Road, Farmgate Dhaka-1205, Dhaka, Bangladesh, 1205
         </p>
-        <p className="copyright">© 2026 Robotics Club. All rights reserved.</p>
+      </div>
+      
+      <div className="container-fluid px-md-5">
+        <div className="footer-bottom-row">
+          <p className="copyright mb-0">© 2026 Robotics Club. All rights reserved.</p>
+          <div className="developer-credits">
+            <p className="developer-name">
+              Developed by <a href="https://imran-hossan-rahul-dev.vercel.app/" target="_blank" rel="noopener noreferrer" className="dev-link">Imran Hossan</a>
+            </p>
+            <p className="developer-role">
+              Media and Publication • Robotics Club of UAP
+            </p>
+          </div>
+        </div>
       </div>
     </footer>
   )
