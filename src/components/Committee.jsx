@@ -221,6 +221,143 @@ export default function Committee() {
           </div>
         </div>
       </div>
+
+      {/* ===== PRIORITY IMAGES ===== */}
+      <div className="container-fluid px-3 px-xl-5 mt-5 position-relative">
+        <style>{`
+          .priority-img {
+            height: clamp(150px, 20vw, 280px);
+            width: auto;
+            border-radius: 16px;
+            display: block;
+          }
+          @media (max-width: 768px) {
+            .priority-img {
+              height: auto;
+              width: 100%;
+            }
+          }
+        `}</style>
+        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 'clamp(10px, 1.5vw, 20px)' }}>
+          {['priority (3).jpg', 'priority (1).jpg', 'priority (2).jpg'].map((img, idx) => (
+            <div className="event-highlight-card" style={{ padding: 0, display: 'flex', justifyContent: 'center', overflow: 'hidden' }} key={idx}>
+              <img src={`/photo/${img}`} alt={`Priority Image ${idx + 1}`} className="priority-img" loading="lazy" />
+            </div>
+          ))}
+        </div>
+      </div>
+      {/* ===== UNUSUAL MARQUEE GALLERY ===== */}
+      <div className="mt-5 pt-5 pb-5 position-relative" style={{ overflow: 'hidden', width: '100%', background: 'linear-gradient(to bottom, transparent, rgba(10, 14, 20, 0.8) 20%, rgba(10, 14, 20, 0.8) 80%, transparent)' }}>
+        <style>{`
+          @keyframes marqueeLeft {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          @keyframes marqueeRight {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+          }
+          .marquee-track {
+            display: flex;
+            width: max-content;
+            gap: 13px;
+          }
+          .marquee-track:hover {
+            animation-play-state: paused;
+          }
+          .marquee-item {
+            flex: 0 0 auto;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+            border-radius: 0;
+            overflow: hidden;
+            border: 1px solid rgba(34, 211, 238, 0.15);
+            background: #000;
+          }
+          .marquee-item:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 15px 30px rgba(34, 211, 238, 0.25);
+            z-index: 10;
+            border-color: rgba(34, 211, 238, 0.5);
+          }
+          .marquee-photo {
+            height: 220px;
+            width: auto;
+            display: block;
+            opacity: 0.85;
+            transition: opacity 0.4s ease;
+          }
+          .marquee-item:hover .marquee-photo {
+            opacity: 1;
+          }
+          @media (max-width: 768px) {
+            .marquee-photo {
+              height: 160px;
+            }
+          }
+        `}</style>
+
+        {/* Row 1 */}
+        <div className="marquee-track" style={{ animation: 'marqueeLeft 35s linear infinite' }}>
+          {[...['unusual (1).jpg', 'unusual (2).jpg', 'unusual (3).jpg', 'unusual (4).jpg', 'unusual (5).jpg', 'unusual (6).jpg', 'unusual (7).jpg', 'unusual (8).jpg'], ...['unusual (1).jpg', 'unusual (2).jpg', 'unusual (3).jpg', 'unusual (4).jpg', 'unusual (5).jpg', 'unusual (6).jpg', 'unusual (7).jpg', 'unusual (8).jpg']].map((img, idx) => (
+            <div className="marquee-item" key={`row1-${idx}`}>
+              <img src={`/photo/${img}`} alt={`Gallery image ${idx}`} className="marquee-photo" loading="lazy" />
+            </div>
+          ))}
+        </div>
+
+        {/* Row 2 - Left to Right */}
+        <div className="marquee-track" style={{ animation: 'marqueeRight 40s linear infinite', marginTop: '13px' }}>
+          {[...['unusual (9).jpg', 'unusual (10).jpg', 'unusual (11).jpeg', 'unusual (12).jpeg', 'unusual (13).jpeg', 'unusual (1).jpeg', 'unusual (2).jpeg', 'unusual (3).jpeg'], ...['unusual (9).jpg', 'unusual (10).jpg', 'unusual (11).jpeg', 'unusual (12).jpeg', 'unusual (13).jpeg', 'unusual (1).jpeg', 'unusual (2).jpeg', 'unusual (3).jpeg']].map((img, idx) => (
+            <div className="marquee-item" key={`row2-${idx}`}>
+              <img src={`/photo/${img}`} alt={`Gallery image ${idx}`} className="marquee-photo" loading="lazy" />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ===== SPECIAL ENDING GRAPHIC ===== */}
+      <div className="container mt-5 pt-5 pb-5" style={{ display: 'flex', justifyContent: 'center' }}>
+        <div className="position-relative d-inline-flex" style={{ maxWidth: '100%', width: 'fit-content', transition: 'transform 0.4s ease', justifyContent: 'center' }} onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.02)'} onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}>
+          {/* Subtle Ambient Glow Behind Image */}
+          <div style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: '110%',
+            height: '110%',
+            background: 'radial-gradient(circle at center, rgba(34, 211, 238, 0.15) 0%, rgba(245, 158, 11, 0.1) 40%, transparent 70%)',
+            filter: 'blur(50px)',
+            zIndex: 0,
+            pointerEvents: 'none'
+          }}></div>
+          
+          {/* Image Card */}
+          <div style={{ 
+            position: 'relative', 
+            zIndex: 1, 
+            display: 'inline-flex',
+            borderRadius: '24px', 
+            background: 'linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0.5) 100%)', 
+            border: '1px solid rgba(34, 211, 238, 0.25)', 
+            boxShadow: '0 25px 50px -12px rgba(0,0,0,0.7), inset 0 0 20px rgba(34, 211, 238, 0.05)',
+            padding: '8px'
+          }}>
+            <img 
+              src="/photo/4f1faac4-02f0-402a-9443-3defaf96a462.jpg" 
+              alt="Thank You" 
+              style={{ 
+                maxWidth: '100%', 
+                maxHeight: '75vh',
+                width: 'auto',
+                height: 'auto',
+                borderRadius: '16px', 
+                display: 'block' 
+              }} 
+            />
+          </div>
+        </div>
+      </div>
     </section>
   )
 }
